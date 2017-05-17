@@ -1,5 +1,10 @@
+
+
 module.exports = {
   parser: 'babel-eslint',
+  parserOptions: {
+      sourceType: "module"
+  },
   root: true,
   // See: https://github.com/babel/babel-eslint/issues/192
   ecmaFeatures: {
@@ -13,6 +18,11 @@ module.exports = {
   },
   globals: {
     ENV: true
+  },
+  settings: {
+    'import/resolver': {
+      'babel-module': {}
+    }
   },
   rules: {
     // Possible Errors
@@ -225,8 +235,19 @@ module.exports = {
       beforeSelfClosing: 'always'
     }],
     'react/jsx-uses-react': 2,
-    'react/jsx-uses-vars': 2
+    'react/jsx-uses-vars': 2,
+
+    // import errors
+    'import/no-unresolved': [2, {
+      commonjs: true,
+      amd: true,
+      ignore: ['\.svg$', '^file?']
+    }],
+    'import/named': 2,
+    'import/namespace': 2,
+    'import/default': 2,
+    'import/export': 2
   },
-  plugins: ['react', 'css-modules'],
+  plugins: ['react', 'css-modules', 'import'],
   extends: ['plugin:css-modules/recommended']
 };
