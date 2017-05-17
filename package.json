@@ -1,0 +1,16 @@
+{
+  "name": "eslint-config-sku",
+  "version": "1.0.0",
+  "description": "ESLint configuration used by SKU",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seek-oss/eslint-config-sku.git"
+  },
+  "author": "Seek",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/seek-oss/eslint-config-sku/issues"
+  },
+  "homepage": "https://github.com/seek-oss/eslint-config-sku#readme"
+}
