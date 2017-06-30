@@ -1,9 +1,7 @@
-
-
 module.exports = {
   parser: 'babel-eslint',
   parserOptions: {
-      sourceType: "module"
+    sourceType: "module"
   },
   root: true,
   // See: https://github.com/babel/babel-eslint/issues/192
@@ -21,7 +19,9 @@ module.exports = {
   },
   settings: {
     'import/resolver': {
-      'babel-module': {}
+      'node': {
+        'moduleDirectory': ['node_modules', '.']
+      }
     }
   },
   rules: {
