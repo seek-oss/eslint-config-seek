@@ -12,11 +12,7 @@ The easiest way to use this configuration is with [sku](https://github.com/seek-
 
 If you want to use this ESLint configuration in a project not built with sku, you can install it with following steps.
 
-First, install this package, ESLint and the necessary plugins.
-
-```sh
-npm install --save-dev eslint-config-sku eslint-import-resolver-node@^0.3.0 eslint-plugin-css-modules@^2.7.1 eslint-plugin-import@^2.2.0 eslint-plugin-react@^7.0.1
-```
+First, install this package, ESLint and the necessary plugins listed in this project's [package.json](package.json).
 
 Then create a file named `.eslintrc` with following contents in the root folder of your project:
 
