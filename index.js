@@ -1,3 +1,6 @@
+const path = require('path');
+const root = require('find-root')(process.cwd());
+
 module.exports = {
   parser: 'babel-eslint',
   parserOptions: {
@@ -20,7 +23,7 @@ module.exports = {
   settings: {
     'import/resolver': {
       'node': {
-        'moduleDirectory': ['node_modules', '.']
+        'moduleDirectory': [root, path.join(root, 'node_modules')]
       }
     }
   },
