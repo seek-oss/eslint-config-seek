@@ -4,7 +4,7 @@ const root = require('find-root')(process.cwd());
 module.exports = {
   parser: 'babel-eslint',
   parserOptions: {
-    sourceType: "module"
+    sourceType: 'module'
   },
   root: true,
   // See: https://github.com/babel/babel-eslint/issues/192
@@ -22,15 +22,15 @@ module.exports = {
   },
   settings: {
     'import/resolver': {
-      'node': {
-        'moduleDirectory': [root, path.join(root, 'node_modules')]
+      node: {
+        moduleDirectory: [root, path.join(root, 'node_modules')]
       }
     }
   },
   rules: {
     // Possible Errors
     'no-cond-assign': 2,
-    'no-console': 0,
+    'no-console': 2,
     'no-constant-condition': 2,
     'no-control-regex': 2,
     'no-debugger': 2,
@@ -200,11 +200,14 @@ module.exports = {
     'react/jsx-uses-vars': 2,
 
     // import errors
-    'import/no-unresolved': [2, {
-      commonjs: true,
-      amd: true,
-      ignore: ['\.svg$', '^file?']
-    }],
+    'import/no-unresolved': [
+      2,
+      {
+        commonjs: true,
+        amd: true,
+        ignore: ['.svg$', '^file?']
+      }
+    ],
     'import/named': 2,
     'import/namespace': 2,
     'import/default': 2,
