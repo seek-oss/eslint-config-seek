@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-sku",
-  "version": "1.1.2",
+  "version": "0.0.0-development",
   "description": "ESLint configuration used by SKU",
   "main": "index.js",
   "repository": {
@@ -12,6 +12,11 @@
   "bugs": {
     "url": "https://github.com/seek-oss/eslint-config-sku/issues"
   },
+  "scripts": {
+    "commit": "git-cz",
+    "commitmsg": "commitlint -e -x '@commitlint/config-angular'",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
   "homepage": "https://github.com/seek-oss/eslint-config-sku#readme",
   "dependencies": {
     "babel-eslint": "^7.2.3",
@@ -22,5 +27,18 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-react": "^7.0.1",
     "find-root": "^1.1.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^4.0.0",
+    "@commitlint/config-angular": "^3.1.1",
+    "commitizen": "^2.9.6",
+    "cz-conventional-changelog": "^2.0.0",
+    "husky": "^0.14.3",
+    "semantic-release": "^8.0.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
