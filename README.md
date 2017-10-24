@@ -27,6 +27,18 @@ Then create a file named `.eslintrc` with following contents in the root folder 
 
 You can override the settings from `eslint-config-sku` by editing the `.eslintrc` file. Learn more about [configuring ESLint](http://eslint.org/docs/user-guide/configuring) on the ESLint website.
 
+## sku/unpretty
+
+The core sku config does not include formatting concerns.  
+It is recommended to use [Prettier](https://www.npmjs.com/package/prettier) to lint formatting concerns.  
+If you are not using Prettier and would like to enable formatting rules, use `sku/unpretty` in addition to the core `sku` config.  
+
+```js
+{
+  "extends": ["sku", "sku/unpretty"]
+}
+```
+
 ## License
 
 MIT.
