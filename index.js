@@ -142,7 +142,6 @@ module.exports = {
     'no-nested-ternary': 2,
     'no-unneeded-ternary': 2,
     'spaced-comment': [2, 'always'],
-    'template-curly-spacing': ['error', 'never'],
 
     // ECMAScript 6
     'constructor-super': 2,
