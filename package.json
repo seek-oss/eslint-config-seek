@@ -13,6 +13,7 @@
     "url": "https://github.com/seek-oss/eslint-config-sku/issues"
   },
   "scripts": {
+    "test": "eslint --config 'index.js' foo",
     "commit": "git-cz",
     "commitmsg": "commitlint -e -x '@commitlint/config-angular'",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
@@ -20,7 +21,6 @@
   "homepage": "https://github.com/seek-oss/eslint-config-sku#readme",
   "dependencies": {
     "babel-eslint": "^7.2.3",
-    "eslint": "^3.19.0",
     "eslint-config-prettier": "^2.3.0",
     "eslint-import-resolver-node": "^0.3.0",
     "eslint-plugin-css-modules": "^2.7.1",
@@ -33,8 +33,12 @@
     "@commitlint/config-angular": "^3.1.1",
     "commitizen": "^2.9.6",
     "cz-conventional-changelog": "^2.0.0",
+    "eslint": "^4.13.1",
     "husky": "^0.14.3",
     "semantic-release": "^8.0.3"
+  },
+  "peerDependencies": {
+    "eslint": ">=2.0.0"
   },
   "config": {
     "commitizen": {
