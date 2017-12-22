@@ -33,11 +33,12 @@
     "@commitlint/config-angular": "^3.1.1",
     "commitizen": "^2.9.6",
     "cz-conventional-changelog": "^2.0.0",
+    "eslint": "^4.13.1",
     "husky": "^0.14.3",
     "semantic-release": "^8.0.3"
   },
-  "peerDependency": {
-    "eslint": ">=3.14.1"
+  "peerDependencies": {
+    "eslint": ">=2.0.0"
   },
   "config": {
     "commitizen": {
