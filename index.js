@@ -7,10 +7,6 @@ module.exports = {
     sourceType: 'module'
   },
   root: true,
-  // See: https://github.com/babel/babel-eslint/issues/192
-  ecmaFeatures: {
-    modules: true
-  },
   env: {
     browser: true,
     node: true,
