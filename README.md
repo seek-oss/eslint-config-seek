@@ -1,9 +1,9 @@
-[![Build Status](https://img.shields.io/travis/seek-oss/eslint-config-sku/master.svg?style=flat-square)](http://travis-ci.org/seek-oss/eslint-config-sku) [![npm](https://img.shields.io/npm/v/eslint-config-sku.svg?style=flat-square)](https://www.npmjs.com/package/eslint-config-sku) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square)](https://github.com/semantic-release/semantic-release) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat-square)](http://commitizen.github.io/cz-cli/)
+[![Build Status](https://img.shields.io/travis/seek-oss/eslint-config-seek/master.svg?style=flat-square)](http://travis-ci.org/seek-oss/eslint-config-seek) [![npm](https://img.shields.io/npm/v/eslint-config-seek.svg?style=flat-square)](https://www.npmjs.com/package/eslint-config-seek) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square)](https://github.com/semantic-release/semantic-release) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat-square)](http://commitizen.github.io/cz-cli/)
 
 
-# eslint-config-sku
+# eslint-config-seek
 
-This package includes the shareable ESLint configuration used by [sku](https://github.com/seek-oss/sku).
+This package includes the shareable ESLint configuration used by [SEEK](https://github.com/seek-oss/).
 
 ## Usage in sku Projects
 
@@ -21,11 +21,11 @@ Then create a file named `.eslintrc` with following contents in the root folder 
 
 ```js
 {
-  "extends": "sku"
+  "extends": "seek"
 }
 ```
 
-You can override the settings from `eslint-config-sku` by editing the `.eslintrc` file. Learn more about [configuring ESLint](http://eslint.org/docs/user-guide/configuring) on the ESLint website.
+You can override the settings from `eslint-config-seek` by editing the `.eslintrc` file. Learn more about [configuring ESLint](http://eslint.org/docs/user-guide/configuring) on the ESLint website.
 
 ## License
 

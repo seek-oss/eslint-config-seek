@@ -1,16 +1,16 @@
 {
-  "name": "eslint-config-sku",
+  "name": "eslint-config-seek",
   "version": "0.0.0-development",
-  "description": "ESLint configuration used by SKU",
+  "description": "ESLint configuration used by SEEK",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/seek-oss/eslint-config-sku.git"
+    "url": "git+https://github.com/seek-oss/eslint-config-seek.git"
   },
   "author": "Seek",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/seek-oss/eslint-config-sku/issues"
+    "url": "https://github.com/seek-oss/eslint-config-seek/issues"
   },
   "scripts": {
     "test": "eslint --config 'index.js' foo",
@@ -18,7 +18,7 @@
     "commitmsg": "commitlint -e -x '@commitlint/config-angular'",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
-  "homepage": "https://github.com/seek-oss/eslint-config-sku#readme",
+  "homepage": "https://github.com/seek-oss/eslint-config-seek#readme",
   "dependencies": {
     "babel-eslint": "^7.2.3",
     "eslint-config-prettier": "^2.3.0",
