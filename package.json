@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/seek-oss/eslint-config-seek#readme",
   "dependencies": {
-    "babel-eslint": "^7.2.3",
+    "babel-eslint": "^8.2.1",
     "eslint-config-prettier": "^2.3.0",
     "eslint-import-resolver-node": "^0.3.0",
     "eslint-plugin-css-modules": "^2.7.1",
