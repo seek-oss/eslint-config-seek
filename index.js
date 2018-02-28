@@ -209,6 +209,6 @@ module.exports = {
     'import/default': 'error',
     'import/export': 'error'
   },
-  plugins: ['react', 'css-modules', 'import'],
-  extends: ['plugin:css-modules/recommended', 'prettier']
+  plugins: ['react', 'css-modules', 'import', 'flowtype'],
+  extends: ['plugin:css-modules/recommended', 'prettier', 'plugin:flowtype/recommended']
 };
