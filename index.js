@@ -4,7 +4,8 @@ const root = require('find-root')(process.cwd());
 module.exports = {
   parser: 'babel-eslint',
   parserOptions: {
-    sourceType: 'module'
+    sourceType: 'module',
+    ecmaFeatures: { jsx: true }
   },
   root: true,
   env: {
@@ -17,10 +18,17 @@ module.exports = {
     ENV: true
   },
   settings: {
+    'import/parsers': {
+      'typescript-eslint-parser': ['.ts', '.tsx']
+    },
     'import/resolver': {
       node: {
-        moduleDirectory: [root, path.join(root, 'node_modules')]
+        moduleDirectory: [root, path.join(root, 'node_modules')],
+        extensions: ['.js', '.ts', '.tsx']
       }
+    },
+    react: {
+      version: '>16'
     }
   },
   rules: {
@@ -210,5 +218,9 @@ module.exports = {
     'import/export': 'error'
   },
   plugins: ['react', 'css-modules', 'import', 'flowtype'],
-  extends: ['plugin:css-modules/recommended', 'prettier', 'plugin:flowtype/recommended']
+  extends: [
+    'plugin:css-modules/recommended',
+    'prettier',
+    'plugin:flowtype/recommended'
+  ]
 };
