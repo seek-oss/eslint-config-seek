@@ -13,33 +13,35 @@
     "url": "https://github.com/seek-oss/eslint-config-seek/issues"
   },
   "scripts": {
-    "test": "eslint --config 'index.js' foo",
+    "test": "eslint --config 'index.js' .",
     "commit": "git-cz",
     "commitmsg": "commitlint -e -x '@commitlint/config-angular'",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "homepage": "https://github.com/seek-oss/eslint-config-seek#readme",
   "dependencies": {
-    "babel-eslint": "^8.2.1",
-    "eslint-config-prettier": "^2.3.0",
-    "eslint-import-resolver-node": "^0.3.0",
-    "eslint-plugin-css-modules": "^2.7.1",
-    "eslint-plugin-flowtype": "^2.46.1",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-react": "^7.0.1",
-    "find-root": "^1.1.0"
+    "babel-eslint": "^10.0.1",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-import-resolver-node": "^0.3.2",
+    "eslint-plugin-css-modules": "^2.9.1",
+    "eslint-plugin-flowtype": "^3.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-react": "^7.11.1",
+    "find-root": "^1.1.0",
+    "typescript": "^3.1.3",
+    "typescript-eslint-parser": "^20.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^4.0.0",
     "@commitlint/config-angular": "^3.1.1",
     "commitizen": "^2.9.6",
     "cz-conventional-changelog": "^2.0.0",
-    "eslint": "^4.13.1",
+    "eslint": "^5.7.0",
     "husky": "^0.14.3",
     "semantic-release": "^8.0.3"
   },
   "peerDependencies": {
-    "eslint": ">=2.0.0"
+    "eslint": ">=5"
   },
   "config": {
     "commitizen": {
