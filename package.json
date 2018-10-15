@@ -15,6 +15,7 @@
   "scripts": {
     "test": "eslint --config 'index.js' .",
     "commit": "git-cz",
+    "travis-deploy-once": "travis-deploy-once",
     "semantic-release": "semantic-release"
   },
   "husky": {
