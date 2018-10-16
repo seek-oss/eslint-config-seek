@@ -179,7 +179,7 @@ module.exports = {
     'react/no-unknown-property': 'error',
     'react/prefer-es6-class': ['error', 'always'],
     'react/prefer-stateless-function': 'off', // 'error',
-    'react/prop-types': 'error',
+    'react/prop-types': ['error', { skipUndeclared: true }],
     'react/react-in-jsx-scope': 'error',
     'react/require-extension': 'off',
     'react/require-optimization': 'off',
