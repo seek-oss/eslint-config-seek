@@ -28,7 +28,7 @@ module.exports = {
       }
     },
     react: {
-      version: '>16'
+      version: 'detect' // falls back to latest (999.999.999) if no version detected
     }
   },
   rules: {
