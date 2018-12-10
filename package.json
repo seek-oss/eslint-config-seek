@@ -2,7 +2,7 @@
   "name": "eslint-config-seek",
   "version": "0.0.0-development",
   "description": "ESLint configuration used by SEEK",
-  "main": "index.js",
+  "main": ".eslintrc.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/seek-oss/eslint-config-seek.git"
@@ -13,7 +13,7 @@
     "url": "https://github.com/seek-oss/eslint-config-seek/issues"
   },
   "scripts": {
-    "test": "eslint --config 'index.js' .",
+    "test": "eslint . --ignore-pattern '!.eslintrc.js'",
     "commit": "git-cz",
     "travis-deploy-once": "travis-deploy-once",
     "semantic-release": "semantic-release"
