@@ -15,7 +15,13 @@ module.exports = {
     jest: true
   },
   globals: {
-    ENV: true
+    ENV: true,
+    after: true,
+    before: true,
+    browser: true,
+    context: true,
+    cy: true,
+    Cypress: true
   },
   settings: {
     'import/parsers': {
