@@ -15,7 +15,6 @@ module.exports = {
     jest: true
   },
   globals: {
-    ENV: true,
     after: true,
     before: true,
     browser: true,
