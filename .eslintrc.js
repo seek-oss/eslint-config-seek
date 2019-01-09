@@ -15,9 +15,6 @@ module.exports = {
     jest: true,
     'cypress/globals': true
   },
-  globals: {
-    browser: true
-  },
   settings: {
     'import/parsers': {
       'typescript-eslint-parser': ['.ts', '.tsx']
