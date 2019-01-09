@@ -12,10 +12,8 @@ module.exports = {
     browser: true,
     node: true,
     es6: true,
-    jest: true
-  },
-  globals: {
-    ENV: true
+    jest: true,
+    'cypress/globals': true
   },
   settings: {
     'import/parsers': {
@@ -217,10 +215,11 @@ module.exports = {
     'import/default': 'error',
     'import/export': 'error'
   },
-  plugins: ['react', 'css-modules', 'import', 'flowtype'],
+  plugins: ['react', 'css-modules', 'import', 'flowtype', 'cypress'],
   extends: [
     'plugin:css-modules/recommended',
     'prettier',
-    'plugin:flowtype/recommended'
+    'plugin:flowtype/recommended',
+    'plugin:cypress/recommended'
   ]
 };
