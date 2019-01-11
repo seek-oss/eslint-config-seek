@@ -122,7 +122,7 @@ module.exports = {
     'no-shadow': 'error',
     'no-undef-init': 'error',
     'no-undef': 'error',
-    'no-undefined': 'error',
+    'no-undefined': 'off',
     'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
     'no-use-before-define': 'error',
 
