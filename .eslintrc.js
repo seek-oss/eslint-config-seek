@@ -200,6 +200,7 @@ module.exports = {
     'react/jsx-sort-props': 'off',
     'react/jsx-uses-react': 'error',
     'react/jsx-uses-vars': 'error',
+    'react-hooks/rules-of-hooks': 'error',
 
     // import errors
     'import/no-unresolved': [
@@ -215,7 +216,7 @@ module.exports = {
     'import/default': 'error',
     'import/export': 'error'
   },
-  plugins: ['react', 'css-modules', 'import', 'flowtype', 'cypress'],
+  plugins: ['react', 'react-hooks', 'css-modules', 'import', 'flowtype', 'cypress'],
   extends: [
     'plugin:css-modules/recommended',
     'prettier',
