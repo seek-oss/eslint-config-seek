@@ -191,7 +191,7 @@ module.exports = {
     'react/jsx-handler-names': 'off', // 'error',
     'react/jsx-key': 'error',
     'react/jsx-max-props-per-line': 'off',
-    'react/jsx-no-bind': 'error',
+    'react/jsx-no-bind': 'off',
     'react/jsx-no-duplicate-props': 'error',
     'react/jsx-no-literals': 'off',
     'react/jsx-no-target-blank': 'error',
