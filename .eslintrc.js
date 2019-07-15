@@ -217,8 +217,9 @@ module.exports = {
     'import/default': 'error',
     'import/export': 'error'
   },
-  plugins: ['react', 'react-hooks', 'css-modules', 'import', 'flowtype', 'cypress'],
+  plugins: ['react', 'react-hooks', 'css-modules', 'import', 'flowtype', 'cypress', 'jest'],
   extends: [
+    'plugin:jest/recommended',
     'plugin:css-modules/recommended',
     'prettier',
     'plugin:flowtype/recommended',
