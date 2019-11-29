@@ -243,6 +243,11 @@ module.exports = {
     {
       files: ['**/*.ts', '**/*.tsx'],
       parser: '@typescript-eslint/parser',
+      settings: {
+        'import/parsers': {
+          'babel-eslint': ['.js'],
+        },
+      },
       extends: [
         ...extendsConfig,
         'prettier/@typescript-eslint',
