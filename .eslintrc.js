@@ -190,15 +190,13 @@ const rules = {
   'import/export': 'error'
 };
 
-const plugins = [
-  'react',
-  'react-hooks',
-  'css-modules',
-  'import',
-  'flowtype',
-  'cypress',
-  'jest'
-];
+const extendsConfig = [
+  'plugin:jest/recommended',
+  'plugin:css-modules/recommended',
+  'prettier',
+  'plugin:flowtype/recommended',
+  'plugin:cypress/recommended'
+]
 
 module.exports = {
   parser: 'babel-eslint',
@@ -231,22 +229,24 @@ module.exports = {
   rules: {
     ...rules
   },
-  plugins,
-  extends: [
-    'plugin:jest/recommended',
-    'plugin:css-modules/recommended',
-    'prettier',
-    'plugin:flowtype/recommended',
-    'plugin:cypress/recommended'
+  plugins: [
+    'react',
+    'react-hooks',
+    'css-modules',
+    'import',
+    'flowtype',
+    'cypress',
+    'jest'
   ],
+  extends: extendsConfig,
   overrides: [
     {
       files: ['**/*.ts', '**/*.tsx'],
       parser: '@typescript-eslint/parser',
-      plugins: [
-        ...plugins,
-        '@typescript-eslint/recommended',
-        'prettier/@typescript-eslint'
+      extends: [
+        ...extendsConfig,
+        'prettier/@typescript-eslint',
+        'plugin:@typescript-eslint/recommended',
       ],
       parserOptions: {
         ecmaVersion: 2018,
