@@ -233,8 +233,7 @@ module.exports = {
         'eslint:recommended',
         'plugin:react/recommended',
         'plugin:@typescript-eslint/recommended',
-        'prettier/@typescript-eslint',
-        'plugin:react-hooks'
+        'prettier/@typescript-eslint'
       ],
       parserOptions: {
         ecmaVersion: 2018,
