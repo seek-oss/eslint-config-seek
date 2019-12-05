@@ -80,6 +80,11 @@ const rules = {
   'react/jsx-pascal-case': 'error',
   'react-hooks/rules-of-hooks': 'error',
   'react-hooks/exhaustive-deps': 'error',
+  'react/display-name': 0,
+  'react/prop-types': 0,
+};
+
+const jsRules = {
   'import/no-unresolved': [
     'error',
     { commonjs: true, amd: true, ignore: ['.svg$', '^file?'] },
@@ -98,7 +103,7 @@ const commonExtends = [
   'prettier',
 ];
 
-module.exports = {
+const baseConfig = {
   parser: 'babel-eslint',
   parserOptions: {
     sourceType: 'module',
@@ -113,13 +118,7 @@ module.exports = {
     'cypress/globals': true,
   },
   settings: {
-    'import/parsers': {
-      '@typescript-eslint/parser': ['.ts', '.tsx'],
-    },
     'import/resolver': {
-      typescript: {
-        alwaysTryTypes: true,
-      },
       node: {
         moduleDirectory: [root, path.join(root, 'node_modules')],
         extensions: ['.js', '.ts', '.tsx'],
@@ -134,12 +133,12 @@ module.exports = {
     'react',
     'react-hooks',
     'css-modules',
-    'import',
-    'flowtype',
+    // 'import',
+
     'cypress',
     'jest',
   ],
-  extends: ['plugin:flowtype/recommended', ...commonExtends],
+  extends: commonExtends,
   overrides: [
     {
       files: ['**/*.ts', '**/*.tsx'],
@@ -162,9 +161,20 @@ module.exports = {
         ...rules,
         '@typescript-eslint/ban-ts-ignore': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
-        'react/jsx-filename-extension': 'off',
+        // 'react/jsx-filename-extension': 'off',
         '@typescript-eslint/explicit-function-return-type': 'off',
       },
     },
+    {
+      files: ['**/*.js', '**/*.jsx'],
+      rules: jsRules,
+      extends: [
+        'plugin:flowtype/recommended',
+        'plugin:import/errors',
+        'plugin:import/warnings',
+      ],
+      plugins: ['flowtype'],
+    },
   ],
 };
+module.exports = baseConfig;
