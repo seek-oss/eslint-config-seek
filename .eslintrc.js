@@ -4,7 +4,6 @@ const root = require('find-root')(process.cwd());
 const rules = {
   // Possible Errors
   'no-console': 'error',
-  'no-negated-in-lhs': 'error',
   'no-unexpected-multiline': 'error',
   'block-scoped-var': 'error',
   'consistent-return': 'error',
@@ -29,7 +28,6 @@ const rules = {
   'no-lone-blocks': 'error',
   'no-loop-func': 'error',
   'no-multi-str': 'error',
-  'no-native-reassign': 'error',
   'no-new-func': 'error',
   'no-new-wrappers': 'error',
   'no-new': 'error',
@@ -92,13 +90,12 @@ const rules = {
   'import/export': 'error',
 };
 
-const extendsConfig = [
-  'plugin:jest/recommended',
+const commonExtends = [
   'plugin:css-modules/recommended',
-  'prettier',
-  'plugin:flowtype/recommended',
   'plugin:cypress/recommended',
+  'plugin:jest/recommended',
   'plugin:react/recommended',
+  'prettier',
 ];
 
 module.exports = {
@@ -120,6 +117,9 @@ module.exports = {
       '@typescript-eslint/parser': ['.ts', '.tsx'],
     },
     'import/resolver': {
+      typescript: {
+        alwaysTryTypes: true,
+      },
       node: {
         moduleDirectory: [root, path.join(root, 'node_modules')],
         extensions: ['.js', '.ts', '.tsx'],
@@ -139,7 +139,7 @@ module.exports = {
     'cypress',
     'jest',
   ],
-  extends: extendsConfig,
+  extends: ['plugin:flowtype/recommended', ...commonExtends],
   overrides: [
     {
       files: ['**/*.ts', '**/*.tsx'],
@@ -150,9 +150,9 @@ module.exports = {
         },
       },
       extends: [
-        ...extendsConfig,
-        'prettier/@typescript-eslint',
         'plugin:@typescript-eslint/recommended',
+        'prettier/@typescript-eslint',
+        ...commonExtends,
       ],
       parserOptions: {
         ecmaVersion: 2018,
