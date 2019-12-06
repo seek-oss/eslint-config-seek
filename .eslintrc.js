@@ -82,9 +82,12 @@ const rules = {
   'react-hooks/exhaustive-deps': 'error',
   'react/display-name': 0,
   'react/prop-types': 0,
+<<<<<<< HEAD
   'react/no-children-prop': 'warn',
   'react/jsx-filename-extension': 'off',
   'react/no-children-prop': 'off',
+=======
+>>>>>>> ae56ac99558a2223f11d201479ce057d12edd806
 };
 
 const jsRules = {
