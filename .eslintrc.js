@@ -137,8 +137,6 @@ const baseConfig = {
     'react',
     'react-hooks',
     'css-modules',
-    // 'import',
-
     'cypress',
     'jest',
   ],
@@ -165,7 +163,6 @@ const baseConfig = {
         ...rules,
         '@typescript-eslint/ban-ts-ignore': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
-        // 'react/jsx-filename-extension': 'off',
         '@typescript-eslint/explicit-function-return-type': 'off',
       },
     },
