@@ -76,7 +76,6 @@ const rules = {
   'react/prefer-es6-class': ['error', 'always'],
   'react/self-closing-comp': 'error',
   'react/sort-comp': 'error',
-  'react/jsx-filename-extension': ['error', { extensions: ['.js'] }],
   'react/jsx-pascal-case': 'error',
   'react-hooks/rules-of-hooks': 'error',
   'react-hooks/exhaustive-deps': 'error',
@@ -97,6 +96,13 @@ const jsRules = {
   'import/default': 'error',
   'import/export': 'error',
   'import/no-duplicates': 'error',
+};
+
+const tsRules = {
+  ...rules,
+  '@typescript-eslint/ban-ts-ignore': 'off',
+  '@typescript-eslint/no-explicit-any': 'off',
+  '@typescript-eslint/explicit-function-return-type': 'off',
 };
 
 const commonExtends = [
@@ -133,13 +139,7 @@ const baseConfig = {
     },
   },
   rules,
-  plugins: [
-    'react',
-    'react-hooks',
-    'css-modules',
-    'cypress',
-    'jest',
-  ],
+  plugins: ['react', 'react-hooks', 'css-modules', 'cypress', 'jest'],
   extends: commonExtends,
   overrides: [
     {
@@ -153,18 +153,12 @@ const baseConfig = {
       extends: [
         'plugin:@typescript-eslint/recommended',
         'prettier/@typescript-eslint',
-        ...commonExtends,
       ],
       parserOptions: {
         ecmaVersion: 2018,
         sourceType: 'module',
       },
-      rules: {
-        ...rules,
-        '@typescript-eslint/ban-ts-ignore': 'off',
-        '@typescript-eslint/no-explicit-any': 'off',
-        '@typescript-eslint/explicit-function-return-type': 'off',
-      },
+      rules: tsRules,
     },
     {
       files: ['**/*.js', '**/*.jsx'],
