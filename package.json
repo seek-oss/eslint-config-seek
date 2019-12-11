@@ -13,7 +13,7 @@
     "url": "https://github.com/seek-oss/eslint-config-seek/issues"
   },
   "scripts": {
-    "test": "eslint . --ignore-pattern '!.eslintrc.js'",
+    "test": "eslint .",
     "commit": "git-cz",
     "travis-deploy-once": "travis-deploy-once",
     "semantic-release": "semantic-release"
