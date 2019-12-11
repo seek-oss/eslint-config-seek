@@ -139,6 +139,7 @@ const baseConfig = {
         '@typescript-eslint/ban-ts-ignore': OFF,
         '@typescript-eslint/no-explicit-any': OFF,
         '@typescript-eslint/explicit-function-return-type': OFF,
+        '@typescript-eslint/no-empty-function': OFF,
       },
     },
     {
