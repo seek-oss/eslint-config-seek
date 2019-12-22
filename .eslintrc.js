@@ -127,10 +127,6 @@ const baseConfig = {
         'prettier/@typescript-eslint',
       ],
       rules: {
-        '@typescript-eslint/no-use-before-define': [
-          ERROR,
-          { functions: false },
-        ],
         '@typescript-eslint/no-unused-vars': [
           ERROR,
           { argsIgnorePattern: '^_', ignoreRestSiblings: true },
