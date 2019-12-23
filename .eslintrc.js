@@ -40,7 +40,6 @@ const baseRules = {
   'no-self-compare': ERROR,
   'no-sequences': ERROR,
   'no-throw-literal': ERROR,
-  'no-unused-expressions': ERROR,
   'no-useless-call': ERROR,
   'no-void': ERROR,
   'no-warning-comments': ERROR,
@@ -127,6 +126,7 @@ const baseConfig = {
         'prettier/@typescript-eslint',
       ],
       rules: {
+        '@typescript-eslint/no-unused-expressions': ERROR,
         '@typescript-eslint/no-use-before-define': [
           ERROR,
           { functions: false },
@@ -167,6 +167,7 @@ const baseConfig = {
       },
       plugins: ['flowtype'],
       rules: {
+        'no-unused-expressions': ERROR,
         'import/no-unresolved': [
           ERROR,
           { commonjs: true, amd: true, ignore: ['.svg$', '^file?'] },
