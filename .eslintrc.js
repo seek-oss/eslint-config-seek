@@ -141,6 +141,9 @@ const baseConfig = {
         '@typescript-eslint/explicit-function-return-type': OFF,
         '@typescript-eslint/no-empty-function': OFF,
         '@typescript-eslint/no-empty-interface': OFF,
+        // prefer TypeScript exhaustiveness checking
+        // https://www.typescriptlang.org/docs/handbook/advanced-types.html#exhaustiveness-checking
+        'default-case': OFF,
       },
     },
     {
