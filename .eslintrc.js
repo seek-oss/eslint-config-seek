@@ -131,6 +131,7 @@ const baseConfig = {
           ERROR,
           { argsIgnorePattern: '^_', ignoreRestSiblings: true },
         ],
+        '@typescript-eslint/no-use-before-define': OFF,
         '@typescript-eslint/no-non-null-assertion': OFF,
         '@typescript-eslint/ban-ts-ignore': OFF,
         '@typescript-eslint/no-explicit-any': OFF,
