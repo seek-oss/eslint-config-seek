@@ -72,6 +72,7 @@ const baseRules = {
   'prefer-const': ERROR,
   'prefer-spread': ERROR,
   'prefer-template': ERROR,
+  'no-return-await': ERROR,
 };
 
 const reactRules = {
