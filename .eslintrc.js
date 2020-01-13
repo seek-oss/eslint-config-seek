@@ -42,6 +42,7 @@ const baseRules = {
   'no-throw-literal': ERROR,
   'no-useless-call': ERROR,
   'no-void': ERROR,
+  'no-warning-comments': OFF,
   radix: ERROR,
   'vars-on-top': ERROR,
   yoda: ERROR,
@@ -141,7 +142,6 @@ const baseConfig = {
         // prefer TypeScript exhaustiveness checking
         // https://www.typescriptlang.org/docs/handbook/advanced-types.html#exhaustiveness-checking
         'default-case': OFF,
-        'no-warning-comments': OFF,
       },
     },
     {
