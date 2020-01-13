@@ -142,7 +142,7 @@ const baseConfig = {
         // prefer TypeScript exhaustiveness checking
         // https://www.typescriptlang.org/docs/handbook/advanced-types.html#exhaustiveness-checking
         'default-case': OFF,
-        'import/order': ['error', { 'newlines-between': 'always' }],
+        'import/order': [ERROR, { 'newlines-between': 'always' }],
       },
     },
     {
