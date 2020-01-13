@@ -125,6 +125,7 @@ const baseConfig = {
         'plugin:@typescript-eslint/eslint-recommended',
         'plugin:@typescript-eslint/recommended',
         'prettier/@typescript-eslint',
+        'plugin:@typescript-eslint/recommended-requiring-type-checking',
       ],
       rules: {
         '@typescript-eslint/no-unused-expressions': ERROR,
@@ -142,6 +143,7 @@ const baseConfig = {
         // prefer TypeScript exhaustiveness checking
         // https://www.typescriptlang.org/docs/handbook/advanced-types.html#exhaustiveness-checking
         'default-case': OFF,
+        'import/order': ['error', { 'newlines-between': 'always' }],
       },
     },
     {
