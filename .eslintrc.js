@@ -142,6 +142,7 @@ const baseConfig = {
         // prefer TypeScript exhaustiveness checking
         // https://www.typescriptlang.org/docs/handbook/advanced-types.html#exhaustiveness-checking
         'default-case': OFF,
+        'arrow-body-style': ['error', 'as-needed'],
       },
     },
     {
