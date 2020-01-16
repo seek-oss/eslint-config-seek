@@ -42,7 +42,6 @@ const baseRules = {
   'no-throw-literal': ERROR,
   'no-useless-call': ERROR,
   'no-void': ERROR,
-  'no-warning-comments': ERROR,
   radix: ERROR,
   'vars-on-top': ERROR,
   yoda: ERROR,
