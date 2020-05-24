@@ -37,8 +37,7 @@
     "eslint-plugin-jest": "^23.13.1",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^4.0.2",
-    "find-root": "^1.1.0",
-    "typescript": "^3.9.3"
+    "find-root": "^1.1.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
@@ -48,13 +47,15 @@
     "eslint": "^7.1.0",
     "husky": "^3.1.0",
     "semantic-release": "^15.13.31",
-    "travis-deploy-once": "^5.0.11"
+    "travis-deploy-once": "^5.0.11",
+    "typescript": "^3.9.3"
   },
   "release": {
     "success": false
   },
   "peerDependencies": {
-    "eslint": ">=6"
+    "eslint": ">=6",
+    "typescript": ">=3.3"
   },
   "config": {
     "commitizen": {
