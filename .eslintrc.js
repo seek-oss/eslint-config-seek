@@ -133,7 +133,7 @@ const baseConfig = {
         ],
         '@typescript-eslint/no-use-before-define': OFF,
         '@typescript-eslint/no-non-null-assertion': OFF,
-        '@typescript-eslint/ban-ts-ignore': OFF,
+        '@typescript-eslint/ban-ts-comment': OFF,
         '@typescript-eslint/no-explicit-any': OFF,
         '@typescript-eslint/explicit-function-return-type': OFF,
         '@typescript-eslint/no-empty-function': OFF,
