@@ -142,6 +142,7 @@ const baseConfig = {
           ERROR,
           { ignoreParameters: true },
         ],
+        '@typescript-eslint/explicit-module-boundary-types': OFF,
         // prefer TypeScript exhaustiveness checking
         // https://www.typescriptlang.org/docs/handbook/advanced-types.html#exhaustiveness-checking
         'default-case': OFF,
