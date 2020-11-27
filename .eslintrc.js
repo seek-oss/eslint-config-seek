@@ -53,7 +53,6 @@ const baseRules = {
     ERROR,
     { argsIgnorePattern: '^_', ignoreRestSiblings: true },
   ],
-  'no-use-before-define': [ERROR, { functions: false }],
   'handle-callback-err': ERROR,
   'no-new-require': ERROR,
   'no-path-concat': ERROR,
@@ -170,6 +169,7 @@ const baseConfig = {
       },
       plugins: ['flowtype'],
       rules: {
+        'no-use-before-define': [ERROR, { functions: false }],
         'no-unused-expressions': ERROR,
         'import/no-unresolved': [
           ERROR,
