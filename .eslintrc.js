@@ -149,8 +149,8 @@ const baseConfig = {
         'arrow-body-style': [ERROR, 'as-needed'],
         // Use `typescript-eslint`'s no-shadow to avoid false positives with enums
         // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-shadow.md
-        'no-shadow': 'off',
-        '@typescript-eslint/no-shadow': ['error'],
+        'no-shadow': OFF,
+        '@typescript-eslint/no-shadow': ERROR,
       },
     },
     {
