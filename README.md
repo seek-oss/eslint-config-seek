@@ -1,3 +1,5 @@
+[![Test & Release](https://github.com/seek-oss/eslint-config-seek/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/seek-oss/eslint-config-seek/actions/workflows/test-and-release.yml)
+
 # eslint-config-seek
 
 This package includes the shareable ESLint configuration used by [SEEK](https://github.com/seek-oss/).
