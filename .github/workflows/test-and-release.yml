@@ -1,0 +1,34 @@
+name: Test & Release
+
+on:
+  - pull_request
+  - push
+
+jobs:
+  test-and-release:
+    name: Test & Release
+    runs-on: ubuntu-latest
+    env:
+      CI: true
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@main
+        with:
+          lfs: true
+
+      - name: Set up Node.js 14.x
+        uses: actions/setup-node@main
+        with:
+          node-version: 14.x
+
+      - name: Install dependencies
+        run: yarn --immutable
+
+      - name: Test
+        run: yarn test
+
+      - name: Release
+        run: yarn release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.SEEK_OSS_CI_NPM_TOKEN }}
