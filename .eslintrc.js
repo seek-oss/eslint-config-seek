@@ -85,10 +85,11 @@ const reactRules = {
 };
 
 const baseConfig = {
-  parser: 'babel-eslint',
+  parser: '@babel/eslint-parser',
   parserOptions: {
     sourceType: 'module',
     ecmaFeatures: { jsx: true },
+    requireConfigFile: false,
   },
   root: true,
   env: {
@@ -100,9 +101,8 @@ const baseConfig = {
       version: '>16',
     },
   },
-  plugins: ['react', 'react-hooks', 'css-modules'],
+  plugins: ['react', 'react-hooks', '@babel'],
   extends: [
-    'plugin:css-modules/recommended',
     'plugin:react/recommended',
     'prettier',
   ],
@@ -159,7 +159,6 @@ const baseConfig = {
         es6: true,
       },
       extends: [
-        'plugin:flowtype/recommended',
         'plugin:import/errors',
         'plugin:import/warnings',
         'plugin:import/typescript',
@@ -171,7 +170,7 @@ const baseConfig = {
           },
         },
       },
-      plugins: ['flowtype'],
+      plugins: [],
       rules: {
         'no-use-before-define': [ERROR, { functions: false }],
         'no-unused-expressions': ERROR,
