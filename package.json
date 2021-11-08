@@ -13,7 +13,7 @@
     "url": "https://github.com/seek-oss/eslint-config-seek/issues"
   },
   "scripts": {
-    "release": "changeset release",
+    "release": "changeset publish",
     "test": "eslint .",
     "version": "changeset version && prettier --write ."
   },
