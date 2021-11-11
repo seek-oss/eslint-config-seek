@@ -100,12 +100,8 @@ const baseConfig = {
       version: '>16',
     },
   },
-  plugins: ['react', 'react-hooks', 'css-modules'],
-  extends: [
-    'plugin:css-modules/recommended',
-    'plugin:react/recommended',
-    'prettier',
-  ],
+  plugins: ['react', 'react-hooks'],
+  extends: ['plugin:react/recommended', 'prettier'],
   rules: {
     ...baseRules,
     ...reactRules,
@@ -159,7 +155,6 @@ const baseConfig = {
         es6: true,
       },
       extends: [
-        'plugin:flowtype/recommended',
         'plugin:import/errors',
         'plugin:import/warnings',
         'plugin:import/typescript',
@@ -171,7 +166,6 @@ const baseConfig = {
           },
         },
       },
-      plugins: ['flowtype'],
       rules: {
         'no-use-before-define': [ERROR, { functions: false }],
         'no-unused-expressions': ERROR,
