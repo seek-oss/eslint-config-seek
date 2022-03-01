@@ -97,7 +97,7 @@ const baseConfig = {
   },
   settings: {
     react: {
-      version: '>16',
+      version: 'detect',
     },
   },
   plugins: ['react', 'react-hooks'],
