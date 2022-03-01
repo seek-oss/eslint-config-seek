@@ -15,7 +15,7 @@
   "scripts": {
     "release": "changeset publish",
     "test": "eslint .",
-    "version": "changeset version && prettier --write ."
+    "changeset-version": "changeset version && prettier --write ."
   },
   "homepage": "https://github.com/seek-oss/eslint-config-seek#readme",
   "dependencies": {
