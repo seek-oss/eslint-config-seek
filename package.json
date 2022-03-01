@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-seek",
-  "version": "7.0.9",
+  "version": "8.0.0",
   "description": "ESLint configuration used by SEEK",
   "main": ".eslintrc.js",
   "repository": {
