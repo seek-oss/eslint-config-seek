@@ -25,7 +25,7 @@ jobs:
         run: yarn --immutable
 
       - name: Release
-        uses: changesets/action@master
+        uses: changesets/action@v1
         with:
           publish: yarn release
           version: yarn version
