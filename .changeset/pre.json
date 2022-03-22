@@ -1,0 +1,10 @@
+{
+  "mode": "pre",
+  "tag": "beta",
+  "initialVersions": {
+    "eslint-config-seek": "8.0.0"
+  },
+  "changesets": [
+    "olive-seas-collect"
+  ]
+}
