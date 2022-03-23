@@ -88,10 +88,13 @@ const reactRules = {
 };
 
 const baseConfig = {
-  parser: 'babel-eslint',
+  parser: '@babel/eslint-parser',
   parserOptions: {
+    babelOptions: {
+      presets: ['@babel/preset-react'],
+    },
+    requireConfigFile: false,
     sourceType: 'module',
-    ecmaFeatures: { jsx: true },
   },
   root: true,
   env: {
@@ -121,7 +124,7 @@ const baseConfig = {
       extends: [
         'plugin:@typescript-eslint/eslint-recommended',
         'plugin:@typescript-eslint/recommended',
-        'prettier/@typescript-eslint',
+        'prettier',
       ],
       rules: {
         '@typescript-eslint/no-unused-expressions': ERROR,
@@ -140,7 +143,6 @@ const baseConfig = {
           ERROR,
           { ignoreParameters: true },
         ],
-        '@typescript-eslint/explicit-module-boundary-types': OFF,
         // prefer TypeScript exhaustiveness checking
         // https://www.typescriptlang.org/docs/handbook/advanced-types.html#exhaustiveness-checking
         'default-case': OFF,
