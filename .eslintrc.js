@@ -87,6 +87,7 @@ const reactRules = {
   'react/prop-types': OFF,
 };
 
+/** @type {import('eslint').Linter.Config} */
 const baseConfig = {
   parser: '@babel/eslint-parser',
   parserOptions: {
@@ -106,8 +107,15 @@ const baseConfig = {
       version: 'detect',
     },
   },
-  plugins: ['react', 'react-hooks'],
-  extends: ['plugin:react/recommended', 'prettier'],
+  plugins: ['react', 'react-hooks', 'import'],
+  extends: [
+    'plugin:react/recommended',
+    // this config enables eslint-plugin-import to resolve JavaScript and TypeScript files
+    // https://github.com/import-js/eslint-plugin-import/blob/v2.26.0/config/typescript.js
+    // Some rules provided by eslint-plugin-import e.g. `import/no-duplicates` don't work without it
+    'plugin:import/typescript',
+    'prettier',
+  ],
   rules: {
     ...baseRules,
     ...reactRules,
@@ -126,6 +134,13 @@ const baseConfig = {
         'plugin:@typescript-eslint/recommended',
         'prettier',
       ],
+      settings: {
+        // adds comprehensive TypeScript support to eslint-plugin-import
+        // https://github.com/import-js/eslint-import-resolver-typescript
+        'import/resolver': {
+          typescript: {},
+        },
+      },
       rules: {
         '@typescript-eslint/no-unused-expressions': ERROR,
         '@typescript-eslint/no-unused-vars': [
@@ -159,11 +174,7 @@ const baseConfig = {
       env: {
         es6: true,
       },
-      extends: [
-        'plugin:import/errors',
-        'plugin:import/warnings',
-        'plugin:import/typescript',
-      ],
+      extends: ['plugin:import/errors', 'plugin:import/warnings'],
       settings: {
         'import/resolver': {
           node: {

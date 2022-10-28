@@ -14,13 +14,17 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@main
 
-      - name: Set up Node.js 16.x
-        uses: actions/setup-node@main
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v2.2.4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version-file: package.json
+          cache: pnpm
 
       - name: Install dependencies
-        run: yarn --immutable
+        run: pnpm install --frozen-lockfile
 
       - name: Test
-        run: yarn test
+        run: pnpm test
