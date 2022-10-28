@@ -15,7 +15,7 @@ import { Snippets } from 'playroom';
 import reactElementToJsxString from 'react-element-to-jsx-string';
 ```
 
-After — correctly identifies `@metropolis/docs` as **internal** (as defined [defined in sku][order]) and moves it after the **external** imports:
+After — correctly identifies `@metropolis/docs` as **internal** ([as defined in sku][order]) and moves it after the **external** imports:
 
 ```ts
 import braidSnippets from 'braid-design-system/lib/playroom/snippets';
