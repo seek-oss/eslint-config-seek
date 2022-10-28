@@ -20,19 +20,23 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.SEEK_OSS_CI_GITHUB_TOKEN }}
 
-      - name: Set up Node.js 16.x
+      - name: Set up pnpm
+        uses: pnpm/action-setup@main
+
+      - name: Set up Node.js
         uses: actions/setup-node@main
         with:
-          node-version: 16.x
+          node-version-file: package.json
+          cache: pnpm
 
       - name: Install dependencies
-        run: yarn --immutable
+        run: pnpm install --frozen-lockfile
 
       - name: Release
         uses: changesets/action@v1
         with:
-          publish: yarn release
-          version: yarn changeset-version
+          publish: pnpm release
+          version: pnpm changeset-version
         env:
           GITHUB_TOKEN: ${{ secrets.SEEK_OSS_CI_GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.SEEK_OSS_CI_NPM_TOKEN }}
