@@ -1,5 +1,48 @@
 # eslint-config-seek
 
+## 10.1.0
+
+### Minor Changes
+
+- Enhanced TypeScript support for `eslint-plugin-import` via [`eslint-import-resolver-typescript`](https://github.com/import-js/eslint-import-resolver-typescript) ([#81](https://github.com/seek-oss/eslint-config-seek/pull/81))
+
+  > This means you can:
+  >
+  > - `import`/`require` files with extension `.cts`/`.mts`/`.ts`/`.tsx`/`.d.cts`/`.d.mts`/`.d.ts`
+  > - Use [`paths`](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping) defined in `tsconfig.json`
+  > - Prefer resolving `@types/*` definitions over plain `.js`/`.jsx`
+  > - Multiple tsconfigs support just like normal (i.e. in a monorepo)
+  > - `imports/exports` fields support in `package.json`
+
+### Patch Changes
+
+- Fixed TypeScript support for `eslint-plugin-import` ([#81](https://github.com/seek-oss/eslint-config-seek/pull/81))
+
+  Some rules provided by `eslint-plugin-import` (e.g. `import/no-duplicates`, `import/order`) don't work or work incorrectly without it.
+
+  Before — passes:
+
+  ```ts
+  import { ComponentDocs as InternalComponentDocs } from '@monorepo/docs';
+  import braidSnippets from 'braid-design-system/lib/playroom/snippets';
+  import { Snippets } from 'playroom';
+  import reactElementToJsxString from 'react-element-to-jsx-string';
+  ```
+
+  After — correctly identifies `@monorepo/docs` as **internal** ([as defined in sku][order]) and moves it after the **external** imports:
+
+  ```ts
+  import braidSnippets from 'braid-design-system/lib/playroom/snippets';
+  import { Snippets } from 'playroom';
+  import reactElementToJsxString from 'react-element-to-jsx-string';
+
+  import { ComponentDocs as InternalComponentDocs } from '@monorepo/docs';
+  ```
+
+  [order]: https://github.com/seek-oss/sku/blob/cf67d47f0e109dafb0541a05c50311f56bd5baa9/config/eslint/importOrderConfig.js#L20-L29
+
+- Upgrade dependencies ([#81](https://github.com/seek-oss/eslint-config-seek/pull/81))
+
 ## 10.0.0
 
 ### Major Changes
