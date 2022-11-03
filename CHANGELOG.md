@@ -1,5 +1,11 @@
 # eslint-config-seek
 
+## 10.1.1
+
+### Patch Changes
+
+- Re-added missing [`no-undef`](https://eslint.org/docs/latest/rules/no-undef) rule for .js/.jsx files ([#84](https://github.com/seek-oss/eslint-config-seek/pull/84))
+
 ## 10.1.0
 
 ### Minor Changes
