@@ -183,6 +183,7 @@ const baseConfig = {
         },
       },
       rules: {
+        'no-undef': ERROR,
         'no-use-before-define': [ERROR, { functions: false }],
         'no-unused-expressions': ERROR,
         'import/no-unresolved': [
