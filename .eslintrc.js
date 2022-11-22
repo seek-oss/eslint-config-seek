@@ -204,7 +204,7 @@ const baseConfig = {
     },
     {
       // Cypress config
-      files: ['cypress/**/*.{js,ts,tsx}'],
+      files: ['**/cypress/**/*.{js,ts,tsx}'],
       env: {
         'cypress/globals': true,
       },
