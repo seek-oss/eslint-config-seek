@@ -1,5 +1,11 @@
 # eslint-config-seek
 
+## 10.1.2
+
+### Patch Changes
+
+- Allow the `cypress` folder to be nested ([#86](https://github.com/seek-oss/eslint-config-seek/pull/86))
+
 ## 10.1.1
 
 ### Patch Changes
