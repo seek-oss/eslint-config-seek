@@ -1,5 +1,11 @@
 # eslint-config-seek
 
+## 10.1.3
+
+### Patch Changes
+
+- Dependency bumps (Babel, ESLint, TypeScript) ([#88](https://github.com/seek-oss/eslint-config-seek/pull/88))
+
 ## 10.1.2
 
 ### Patch Changes
