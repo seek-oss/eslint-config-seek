@@ -87,6 +87,10 @@ const reactRules = {
   'react/prop-types': OFF,
 };
 
+const jsExtensions = ['js', 'cjs', 'mjs', 'jsx'];
+const tsExtensions = ['ts', 'cts', 'mts', 'tsx'];
+const allExtensions = [...jsExtensions, ...tsExtensions];
+
 /** @type {import('eslint').Linter.Config} */
 const baseConfig = {
   parser: '@babel/eslint-parser',
@@ -123,7 +127,7 @@ const baseConfig = {
   overrides: [
     {
       // TypeScript config
-      files: ['**/*.ts', '**/*.tsx'],
+      files: [`**/*.{${tsExtensions}}`],
       parser: '@typescript-eslint/parser',
       parserOptions: {
         ecmaVersion: 2018,
@@ -170,7 +174,7 @@ const baseConfig = {
     },
     {
       // JavaScript config
-      files: ['**/*.js', '**/*.jsx'],
+      files: [`**/*.{${jsExtensions}}`],
       env: {
         es6: true,
       },
@@ -195,7 +199,10 @@ const baseConfig = {
     },
     {
       // Jest config
-      files: ['**/__tests__/**/*.{js,ts,tsx}', '**/*.@(spec|test).{js,ts,tsx}'],
+      files: [
+        `**/__tests__/**/*.{${allExtensions}}`,
+        `**/*.@(spec|test).{${allExtensions}}`,
+      ],
       env: {
         jest: true,
       },
@@ -204,7 +211,7 @@ const baseConfig = {
     },
     {
       // Cypress config
-      files: ['**/cypress/**/*.{js,ts,tsx}'],
+      files: [`**/cypress/**/*.{${allExtensions}}`],
       env: {
         'cypress/globals': true,
       },
