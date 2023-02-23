@@ -1,5 +1,15 @@
 # eslint-config-seek
 
+## 10.2.0
+
+### Minor Changes
+
+- Enable linting for more extensions: `.cjs`, `.mjs`, `.cts`, `.mts` ([#90](https://github.com/seek-oss/eslint-config-seek/pull/90))
+
+### Patch Changes
+
+- Update dependencies ([#91](https://github.com/seek-oss/eslint-config-seek/pull/91))
+
 ## 10.1.3
 
 ### Patch Changes
