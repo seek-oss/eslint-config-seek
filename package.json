@@ -2,9 +2,10 @@
   "name": "eslint-config-seek",
   "version": "10.2.0",
   "description": "ESLint configuration used by SEEK",
-  "main": ".eslintrc.js",
+  "main": "index.js",
   "files": [
-    ".eslintrc.js"
+    "index.js",
+    "base.js"
   ],
   "repository": {
     "type": "git",
@@ -17,7 +18,7 @@
   },
   "scripts": {
     "release": "changeset publish",
-    "test": "eslint .",
+    "test": "eslint . && eslint -c base.js --no-eslintrc .",
     "changeset-version": "changeset version && prettier --write ."
   },
   "homepage": "https://github.com/seek-oss/eslint-config-seek#readme",
