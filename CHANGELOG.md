@@ -1,5 +1,27 @@
 # eslint-config-seek
 
+## 10.3.0
+
+### Minor Changes
+
+- Split config into default (current) and base (without a React dependency). ([#94](https://github.com/seek-oss/eslint-config-seek/pull/94))
+
+  Without React support:
+
+  ```json
+  {
+    "extends": "seek/base"
+  }
+  ```
+
+  With React support:
+
+  ```json
+  {
+    "extends": "seek"
+  }
+  ```
+
 ## 10.2.0
 
 ### Minor Changes
