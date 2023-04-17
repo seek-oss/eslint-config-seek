@@ -76,17 +76,6 @@ const baseRules = {
   'no-return-await': OFF,
 };
 
-const reactRules = {
-  'react/prefer-es6-class': [ERROR, 'always'],
-  'react/self-closing-comp': ERROR,
-  'react/jsx-pascal-case': ERROR,
-  'react-hooks/rules-of-hooks': ERROR,
-  'react-hooks/exhaustive-deps': ERROR,
-  'react/no-children-prop': ERROR,
-  'react/display-name': OFF,
-  'react/prop-types': OFF,
-};
-
 const jsExtensions = ['js', 'cjs', 'mjs', 'jsx'];
 const tsExtensions = ['ts', 'cts', 'mts', 'tsx'];
 const allExtensions = [...jsExtensions, ...tsExtensions];
@@ -95,25 +84,18 @@ const allExtensions = [...jsExtensions, ...tsExtensions];
 const baseConfig = {
   parser: '@babel/eslint-parser',
   parserOptions: {
+    requireConfigFile: false,
+    sourceType: 'module',
     babelOptions: {
       presets: ['@babel/preset-react'],
     },
-    requireConfigFile: false,
-    sourceType: 'module',
   },
   root: true,
   env: {
-    browser: true,
     node: true,
   },
-  settings: {
-    react: {
-      version: 'detect',
-    },
-  },
-  plugins: ['react', 'react-hooks', 'import'],
+  plugins: ['import'],
   extends: [
-    'plugin:react/recommended',
     // this config enables eslint-plugin-import to resolve JavaScript and TypeScript files
     // https://github.com/import-js/eslint-plugin-import/blob/v2.26.0/config/typescript.js
     // Some rules provided by eslint-plugin-import e.g. `import/no-duplicates` don't work without it
@@ -122,7 +104,6 @@ const baseConfig = {
   ],
   rules: {
     ...baseRules,
-    ...reactRules,
   },
   overrides: [
     {
