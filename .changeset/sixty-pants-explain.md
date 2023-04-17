@@ -2,4 +2,20 @@
 "eslint-config-seek": patch
 ---
 
-feat: Split config into default (current) and base (without a react dependency)
+Split config into default (current) and base (without a React dependency).
+
+Without React support:
+
+```json
+{
+  "extends": "seek/base"
+}
+```
+
+With React support:
+
+```json
+{
+  "extends": "seek"
+}
+```
