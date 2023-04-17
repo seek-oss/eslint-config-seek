@@ -1,5 +1,5 @@
 ---
-"eslint-config-seek": patch
+"eslint-config-seek": minor
 ---
 
 Split config into default (current) and base (without a React dependency).
