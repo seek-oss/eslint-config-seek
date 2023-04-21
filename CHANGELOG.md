@@ -1,5 +1,11 @@
 # eslint-config-seek
 
+## 11.0.0
+
+### Major Changes
+
+- Add additional rules enforcing consistent type imports/exports ([#96](https://github.com/seek-oss/eslint-config-seek/pull/96))
+
 ## 10.3.0
 
 ### Minor Changes
