@@ -113,6 +113,7 @@ const baseConfig = {
       parserOptions: {
         ecmaVersion: 2018,
         sourceType: 'module',
+        project: 'tsconfig.json',
       },
       extends: [
         'plugin:@typescript-eslint/eslint-recommended',
@@ -151,6 +152,26 @@ const baseConfig = {
         // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-shadow.md
         'no-shadow': OFF,
         '@typescript-eslint/no-shadow': ERROR,
+
+        // These two rules deal with autofixing type imports/exports
+        // https://typescript-eslint.io/rules/consistent-type-imports
+        '@typescript-eslint/consistent-type-imports': [
+          ERROR,
+          { fixStyle: 'inline-type-imports' },
+        ],
+        // https://typescript-eslint.io/rules/consistent-type-exports
+        '@typescript-eslint/consistent-type-exports': [
+          ERROR,
+          { fixMixedExportsWithInlineTypeSpecifier: true },
+        ],
+        // https://typescript-eslint.io/rules/no-import-type-side-effects
+        '@typescript-eslint/no-import-type-side-effects': ERROR,
+
+        // This rule deals with merging multiple imports from the same module.
+        // In this case, we want type imports to be inlined when merging with the other imports.
+        // However, there is a pending PR which improves the behaviour of this rule https://github.com/import-js/eslint-plugin-import/pull/2716
+        // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-duplicates.md#inline-type-imports
+        'import/no-duplicates': [ERROR, { 'prefer-inline': true }],
       },
     },
     {
