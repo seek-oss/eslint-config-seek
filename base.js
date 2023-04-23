@@ -113,7 +113,7 @@ const baseConfig = {
       parserOptions: {
         ecmaVersion: 2018,
         sourceType: 'module',
-        project: 'tsconfig.json',
+        project: true,
       },
       extends: [
         'plugin:@typescript-eslint/eslint-recommended',
