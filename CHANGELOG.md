@@ -1,5 +1,11 @@
 # eslint-config-seek
 
+## 11.0.1
+
+### Patch Changes
+
+- Update parserOptions.project for TypeScript files to be `true`. ([#98](https://github.com/seek-oss/eslint-config-seek/pull/98))
+
 ## 11.0.0
 
 ### Major Changes
