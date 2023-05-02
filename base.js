@@ -76,8 +76,7 @@ const baseRules = {
   'no-return-await': OFF,
 };
 
-const jsExtensions = ['js', 'cjs', 'mjs', 'jsx'];
-const tsExtensions = ['ts', 'cts', 'mts', 'tsx'];
+const { js: jsExtensions, ts: tsExtensions } = require('./extensions');
 const allExtensions = [...jsExtensions, ...tsExtensions];
 
 /** @type {import('eslint').Linter.Config} */
