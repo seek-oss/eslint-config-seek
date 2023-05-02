@@ -87,7 +87,7 @@ const baseConfig = {
     requireConfigFile: false,
     sourceType: 'module',
     babelOptions: {
-      presets: ['@babel/preset-react'],
+      presets: [require.resolve('@babel/preset-react')],
     },
   },
   root: true,
