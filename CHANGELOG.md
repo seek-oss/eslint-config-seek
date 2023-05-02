@@ -1,5 +1,23 @@
 # eslint-config-seek
 
+## 11.1.0
+
+### Minor Changes
+
+- Export extensions linted by the config ([#101](https://github.com/seek-oss/eslint-config-seek/pull/101))
+
+  They are now available under the `/extensions` entry point:
+
+  ```js
+  const { js, ts } = require('eslint-config-seek/extensions');
+  // js: ['js', 'cjs', 'mjs', 'jsx']
+  // ts: ['ts', 'cts', 'mts', 'tsx']
+  ```
+
+### Patch Changes
+
+- Fix resolution of `@babel/preset-react` ([#100](https://github.com/seek-oss/eslint-config-seek/pull/100))
+
 ## 11.0.1
 
 ### Patch Changes

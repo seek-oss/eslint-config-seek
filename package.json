@@ -1,11 +1,12 @@
 {
   "name": "eslint-config-seek",
-  "version": "11.0.1",
+  "version": "11.1.0",
   "description": "ESLint configuration used by SEEK",
   "main": "index.js",
   "files": [
     "index.js",
-    "base.js"
+    "base.js",
+    "extensions.js"
   ],
   "repository": {
     "type": "git",
