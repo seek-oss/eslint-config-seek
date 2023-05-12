@@ -24,6 +24,11 @@ const eslintConfig = {
   },
   plugins: ['react', 'react-hooks'],
   extends: ['plugin:react/recommended', './base.js'],
+  parserOptions: {
+    babelOptions: {
+      presets: [require.resolve('@babel/preset-react')],
+    },
+  },
   rules: {
     ...reactRules,
   },
