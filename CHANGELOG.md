@@ -1,5 +1,13 @@
 # eslint-config-seek
 
+## 11.1.1
+
+### Patch Changes
+
+- Move the Babel React preset parser option from the "base" configuration to the "default" configuration. ([#103](https://github.com/seek-oss/eslint-config-seek/pull/103))
+
+  This update contains no functional changes to the "default" configuration.
+
 ## 11.1.0
 
 ### Minor Changes
