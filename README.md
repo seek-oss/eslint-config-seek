@@ -25,7 +25,7 @@ Then create a file named `.eslintrc` with following contents in the root folder 
 }
 ```
 
-The default configuration includes support for React projects.  For projects that are not based on React, the "base" configuration should be used instead:
+The default configuration includes support for React projects. For projects that are not based on React, the "base" configuration should be used instead:
 
 ```json
 {
