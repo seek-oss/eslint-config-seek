@@ -19,9 +19,17 @@ First, install this package, ESLint and the necessary plugins listed in this pro
 
 Then create a file named `.eslintrc` with following contents in the root folder of your project:
 
-```js
+```json
 {
   "extends": "seek"
+}
+```
+
+The default configuration includes support for React projects. For projects that are not based on React, the "base" configuration should be used instead:
+
+```json
+{
+  "extends": "seek/base"
 }
 ```
 

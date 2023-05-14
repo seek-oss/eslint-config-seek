@@ -85,9 +85,6 @@ const baseConfig = {
   parserOptions: {
     requireConfigFile: false,
     sourceType: 'module',
-    babelOptions: {
-      presets: [require.resolve('@babel/preset-react')],
-    },
   },
   root: true,
   env: {
