@@ -211,10 +211,13 @@ const baseConfig = {
       // Cypress config
       files: [`**/cypress/**/*.{${allExtensions}}`],
       env: {
-        'cypress/globals': true,
+        '@finsit/cypress/globals': true,
       },
-      extends: ['plugin:cypress/recommended'],
-      plugins: ['cypress'],
+      extends: ['plugin:@finsit/cypress/recommended'],
+      plugins: ['@finsit/cypress', 'eslint-plugin-local-rules'],
+      rules: {
+        'local-rules/unsafe-to-chain-command': ERROR,
+      },
     },
   ],
 };

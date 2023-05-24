@@ -10,6 +10,9 @@ dependencies:
   '@babel/preset-react':
     specifier: ^7.18.6
     version: 7.18.6(@babel/core@7.21.0)
+  '@finsit/eslint-plugin-cypress':
+    specifier: ^3.1.1
+    version: 3.1.1(eslint@8.34.0)
   '@typescript-eslint/eslint-plugin':
     specifier: ^5.53.0
     version: 5.53.0(@typescript-eslint/parser@5.53.0)(eslint@8.34.0)(typescript@4.9.5)
@@ -22,15 +25,15 @@ dependencies:
   eslint-import-resolver-typescript:
     specifier: 3.5.3
     version: 3.5.3(eslint-plugin-import@2.27.5)(eslint@8.34.0)
-  eslint-plugin-cypress:
-    specifier: ^2.12.1
-    version: 2.12.1(eslint@8.34.0)
   eslint-plugin-import:
     specifier: ^2.27.5
     version: 2.27.5(@typescript-eslint/parser@5.53.0)(eslint-import-resolver-typescript@3.5.3)(eslint@8.34.0)
   eslint-plugin-jest:
     specifier: ^27.2.1
     version: 27.2.1(@typescript-eslint/eslint-plugin@5.53.0)(eslint@8.34.0)(typescript@4.9.5)
+  eslint-plugin-local-rules:
+    specifier: ^1.3.2
+    version: 1.3.2
   eslint-plugin-react:
     specifier: ^7.32.2
     version: 7.32.2(eslint@8.34.0)
@@ -580,6 +583,16 @@ packages:
       strip-json-comments: 3.1.1
     transitivePeerDependencies:
       - supports-color
+
+  /@finsit/eslint-plugin-cypress@3.1.1(eslint@8.34.0):
+    resolution: {integrity: sha512-cowFcoYNYOjg/yxKlQ7f26uiGl7FK2Sksvo0KaBnRF0EZbIJTv3apSRLB1RqaTg1N5bhLL9EpVwXqXRpcICNQg==}
+    engines: {node: '>=8.10.0'}
+    peerDependencies:
+      eslint: '>= 7.0.0'
+    dependencies:
+      eslint: 8.34.0
+      globals: 13.19.0
+    dev: false
 
   /@humanwhocodes/config-array@0.11.8:
     resolution: {integrity: sha512-UybHIJzJnR5Qc/MsD9Kr+RpO2h+/P1GhOwdiLPXK5TWk5sgTdu88bTD9UP+CKbPPh5Rni1u0GjAdYQLemG8g+g==}
@@ -1429,15 +1442,6 @@ packages:
       - supports-color
     dev: false
 
-  /eslint-plugin-cypress@2.12.1(eslint@8.34.0):
-    resolution: {integrity: sha512-c2W/uPADl5kospNDihgiLc7n87t5XhUbFDoTl6CfVkmG+kDAb5Ux10V9PoLPu9N+r7znpc+iQlcmAqT1A/89HA==}
-    peerDependencies:
-      eslint: '>= 3.2.1'
-    dependencies:
-      eslint: 8.34.0
-      globals: 11.12.0
-    dev: false
-
   /eslint-plugin-import@2.27.5(@typescript-eslint/parser@5.53.0)(eslint-import-resolver-typescript@3.5.3)(eslint@8.34.0):
     resolution: {integrity: sha512-LmEt3GVofgiGuiE+ORpnvP+kAm3h6MLZJ4Q5HCyHADofsb4VzXFsRiWj3c0OFiV+3DWFh0qg3v9gcPlfc3zRow==}
     engines: {node: '>=4'}
@@ -1490,6 +1494,10 @@ packages:
     transitivePeerDependencies:
       - supports-color
       - typescript
+    dev: false
+
+  /eslint-plugin-local-rules@1.3.2:
+    resolution: {integrity: sha512-X4ziX+cjlCYnZa+GB1ly3mmj44v2PeIld3tQVAxelY6AMrhHSjz6zsgsT6nt0+X5b7eZnvL/O7Q3pSSK2kF/+Q==}
     dev: false
 
   /eslint-plugin-react-hooks@4.6.0(eslint@8.34.0):
