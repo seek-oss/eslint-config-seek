@@ -210,11 +210,17 @@ const baseConfig = {
     {
       // Cypress config
       files: [`**/cypress/**/*.{${allExtensions}}`],
+      // eslint-plugin-cypress doesn't support ESLint v8.
+      // Use fork by `@finsit` until this is solved.
+      // https://github.com/cypress-io/eslint-plugin-cypress/issues/89
+      extends: ['plugin:@finsit/cypress/recommended'],
       env: {
-        'cypress/globals': true,
+        '@finsit/cypress/globals': true,
       },
-      extends: ['plugin:cypress/recommended'],
-      plugins: ['cypress'],
+      plugins: ['@finsit/cypress', 'eslint-plugin-local-rules'],
+      rules: {
+        'local-rules/unsafe-to-chain-command': ERROR,
+      },
     },
   ],
 };
