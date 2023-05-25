@@ -1,5 +1,14 @@
 # eslint-config-seek
 
+## 11.1.2
+
+### Patch Changes
+
+- Replace `eslint-plugin-cypress` with the [`@finsit/eslint-plugin-cypress`] fork that supports ESLint v8. ([#106](https://github.com/seek-oss/eslint-config-seek/pull/106))
+  Consumers that were overriding `cypress/*` rules will need to override `@finsit/cypress/*` rules instead.
+
+  [`@finsit/eslint-plugin-cypress`]: https://github.com/foretagsplatsen/eslint-plugin-cypress
+
 ## 11.1.1
 
 ### Patch Changes
