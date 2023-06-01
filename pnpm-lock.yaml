@@ -31,9 +31,6 @@ dependencies:
   eslint-plugin-jest:
     specifier: ^27.2.1
     version: 27.2.1(@typescript-eslint/eslint-plugin@5.53.0)(eslint@8.34.0)(typescript@4.9.5)
-  eslint-plugin-local-rules:
-    specifier: ^1.3.2
-    version: 1.3.2
   eslint-plugin-react:
     specifier: ^7.32.2
     version: 7.32.2(eslint@8.34.0)
@@ -1494,10 +1491,6 @@ packages:
     transitivePeerDependencies:
       - supports-color
       - typescript
-    dev: false
-
-  /eslint-plugin-local-rules@1.3.2:
-    resolution: {integrity: sha512-X4ziX+cjlCYnZa+GB1ly3mmj44v2PeIld3tQVAxelY6AMrhHSjz6zsgsT6nt0+X5b7eZnvL/O7Q3pSSK2kF/+Q==}
     dev: false
 
   /eslint-plugin-react-hooks@4.6.0(eslint@8.34.0):

@@ -217,10 +217,7 @@ const baseConfig = {
       env: {
         '@finsit/cypress/globals': true,
       },
-      plugins: ['@finsit/cypress', 'eslint-plugin-local-rules'],
-      rules: {
-        'local-rules/unsafe-to-chain-command': ERROR,
-      },
+      plugins: ['@finsit/cypress'],
     },
   ],
 };
