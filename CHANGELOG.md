@@ -1,5 +1,11 @@
 # eslint-config-seek
 
+## 11.1.3
+
+### Patch Changes
+
+- Fix broken custom eslint rule ([#111](https://github.com/seek-oss/eslint-config-seek/pull/111))
+
 ## 11.1.2
 
 ### Patch Changes
