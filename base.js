@@ -4,6 +4,9 @@ const root = require('find-root')(process.cwd());
 const OFF = 0;
 const ERROR = 2;
 
+const rulesDirPlugin = require('eslint-plugin-rulesdir');
+rulesDirPlugin.RULES_DIR = path.join(__dirname, 'rules');
+
 const baseRules = {
   // Possible Errors
   'no-console': ERROR,
@@ -217,9 +220,9 @@ const baseConfig = {
       env: {
         '@finsit/cypress/globals': true,
       },
-      plugins: ['@finsit/cypress', 'eslint-plugin-local-rules'],
+      plugins: ['@finsit/cypress', 'rulesdir'],
       rules: {
-        'local-rules/unsafe-to-chain-command': ERROR,
+        'rulesdir/unsafe-to-chain-command': ERROR,
       },
     },
   ],
