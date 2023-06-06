@@ -9,6 +9,7 @@
 /** @type {import("eslint").Rule.RuleModule} */
 module.exports = {
   meta: {
+    type: 'problem',
     docs: {
       description: 'Actions should be at the end of chains, not in the middle',
       category: 'Possible Errors',
