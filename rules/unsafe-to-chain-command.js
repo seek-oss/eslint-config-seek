@@ -1,4 +1,4 @@
-/** This rule is copied from the original `eslint-plugin-cypress` so we can use the fork (which
+/** This rule was copied from the original `eslint-plugin-cypress` so we can use the fork (which
  * supports eslint 8) while having the same recommended rules as the upstream
  * https://github.com/foretagsplatsen/eslint-plugin-cypress
  * https://github.com/cypress-io/eslint-plugin-cypress/blob/c626ad543f65babf1def5caabd1bc9bb9900d2c7/lib/rules/unsafe-to-chain-command.js
@@ -6,18 +6,21 @@
 // eslint-disable-next-line strict
 'use strict';
 
+/** @type {import("eslint").Rule.RuleModule} */
 module.exports = {
   meta: {
+    type: 'problem',
     docs: {
-      description: 'Actions should be in the end of chains, not in the middle',
+      description: 'Actions should be at the end of chains, not in the middle',
       category: 'Possible Errors',
       recommended: true,
       url: 'https://docs.cypress.io/guides/core-concepts/retry-ability#Actions-should-be-at-the-end-of-chains-not-the-middle',
     },
     schema: [],
+    fixable: 'code',
     messages: {
       unexpected:
-        'It is unsafe to chain further commands that rely on the subject after this command. It is best to split the chain, chaining again from `cy.` in a next command line.',
+        'It is unsafe to chain further commands that rely on the subject after this command. It is best to split the chain, chaining again from `cy.` in the next command.',
     },
   },
   create(context) {
@@ -28,13 +31,28 @@ module.exports = {
           isActionUnsafeToChain(node) &&
           node.parent.type === 'MemberExpression'
         ) {
-          context.report({ node, messageId: 'unexpected' });
+          context.report({
+            node,
+            messageId: 'unexpected',
+            fix: (fixer) => {
+              const { range: originalRange } = node.parent.property;
+
+              // Include the `.` before the identifier in the range
+              const adjustedRange = [originalRange[0] - 1, originalRange[1]];
+
+              return [
+                fixer.insertTextAfter(node, ';'),
+                fixer.insertTextBeforeRange(adjustedRange, 'cy'),
+              ];
+            },
+          });
         }
       },
     };
   },
 };
 
+/** @param {import("eslint").Rule.Node} node */
 function isRootCypress(node) {
   while (node.type === 'CallExpression') {
     if (node.callee.type !== 'MemberExpression') {
@@ -55,6 +73,7 @@ function isRootCypress(node) {
   return false;
 }
 
+/** @param {import("eslint").Rule.Node} node */
 function isActionUnsafeToChain(node) {
   // commands listed in the documentation with text: 'It is unsafe to chain further commands that rely on the subject after xxx'
   const unsafeToChainActions = [
