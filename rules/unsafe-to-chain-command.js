@@ -35,10 +35,10 @@ module.exports = {
             node,
             messageId: 'unexpected',
             fix: (fixer) => {
-              const adjustedRange = [
-                node.parent.property.range[0] - 1,
-                node.parent.property.range[1],
-              ];
+              const { range: originalRange } = node.parent.property;
+
+              // Include the `.` before the identifier in the range
+              const adjustedRange = [originalRange[0] - 1, originalRange[1]];
 
               return [
                 fixer.insertTextAfter(node, ';'),
