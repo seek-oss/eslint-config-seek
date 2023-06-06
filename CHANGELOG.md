@@ -1,5 +1,11 @@
 # eslint-config-seek
 
+## 11.2.0
+
+### Minor Changes
+
+- Add autofix for custom `unsafe-to-chain-command` rule ([#113](https://github.com/seek-oss/eslint-config-seek/pull/113))
+
 ## 11.1.3
 
 ### Patch Changes
