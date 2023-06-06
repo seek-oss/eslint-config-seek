@@ -17,7 +17,6 @@ module.exports = {
     },
     schema: [],
     fixable: 'code',
-    hasSuggestions: true,
     messages: {
       unexpected:
         'It is unsafe to chain further commands that rely on the subject after this command. It is best to split the chain, chaining again from `cy.` in the next command.',
