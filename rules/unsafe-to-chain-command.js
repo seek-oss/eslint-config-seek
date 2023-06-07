@@ -34,17 +34,6 @@ module.exports = {
           context.report({
             node,
             messageId: 'unexpected',
-            fix: (fixer) => {
-              const { range: originalRange } = node.parent.property;
-
-              // Include the `.` before the identifier in the range
-              const adjustedRange = [originalRange[0] - 1, originalRange[1]];
-
-              return [
-                fixer.insertTextAfter(node, ';'),
-                fixer.insertTextBeforeRange(adjustedRange, 'cy'),
-              ];
-            },
           });
         }
       },
