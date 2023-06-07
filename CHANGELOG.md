@@ -1,5 +1,16 @@
 # eslint-config-seek
 
+## 11.2.1
+
+### Patch Changes
+
+- Remove autofix for custom `unsafe-to-chain-command` rule ([#115](https://github.com/seek-oss/eslint-config-seek/pull/115))
+
+  The autofix for this rule didn't exactly adhere to [the recommendation in the cypress docs][docs],
+  and would've required additional complexity and user-configuration to do so, so the decision was made to remove it.
+
+  [docs]: https://docs.cypress.io/guides/core-concepts/retry-ability#Actions-should-be-at-the-end-of-chains-not-the-middle
+
 ## 11.2.0
 
 ### Minor Changes
