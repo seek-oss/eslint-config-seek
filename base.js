@@ -110,9 +110,12 @@ const baseConfig = {
       files: [`**/*.{${tsExtensions}}`],
       parser: '@typescript-eslint/parser',
       parserOptions: {
-        ecmaVersion: 2018,
-        sourceType: 'module',
+        // https://github.com/typescript-eslint/typescript-eslint/issues/6544
+        allowAutomaticSingleRunInference: true,
+        ecmaVersion: 2022,
         project: true,
+        sourceType: 'module',
+        warnOnUnsupportedTypeScriptVersion: false,
       },
       extends: [
         'plugin:@typescript-eslint/eslint-recommended',
