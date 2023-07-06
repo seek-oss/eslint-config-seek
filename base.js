@@ -186,7 +186,7 @@ const baseConfig = {
       settings: {
         'import/resolver': {
           node: {
-            moduleDirectory: [root, path.join(root, 'node_modules')],
+            moduleDirectory: [root, 'node_modules'],
           },
         },
       },
