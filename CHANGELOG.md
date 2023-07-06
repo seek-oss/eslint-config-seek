@@ -1,5 +1,19 @@
 # eslint-config-seek
 
+## 11.3.0
+
+### Minor Changes
+
+- Extend `react/jsx-runtime`, since we are now using the [JSX transform](https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html) ([#118](https://github.com/seek-oss/eslint-config-seek/pull/118))
+
+### Patch Changes
+
+- Update dependencies ([#120](https://github.com/seek-oss/eslint-config-seek/pull/120))
+
+- Disable resolving `node_modules` from the root of the repo. This is problematic for JavaScript-only monorepos (where there are multiple `node_modules` directories). ([#119](https://github.com/seek-oss/eslint-config-seek/pull/119))
+
+- Add a workaround for TypeScript-ESLint slowness with TypeScript 5.1 ([#117](https://github.com/seek-oss/eslint-config-seek/pull/117))
+
 ## 11.2.1
 
 ### Patch Changes
