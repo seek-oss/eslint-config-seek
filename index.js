@@ -23,7 +23,11 @@ const eslintConfig = {
     },
   },
   plugins: ['react', 'react-hooks'],
-  extends: ['plugin:react/recommended', './base.js'],
+  extends: [
+    'plugin:react/recommended',
+    'plugin:react/jsx-runtime',
+    './base.js',
+  ],
   parserOptions: {
     babelOptions: {
       presets: [require.resolve('@babel/preset-react')],
