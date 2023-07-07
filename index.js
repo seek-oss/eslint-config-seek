@@ -36,6 +36,22 @@ const eslintConfig = {
   rules: {
     ...reactRules,
   },
+  overrides: [
+    {
+      // temporary override until everybody removes the React import
+      files: [`**/*.tsx`],
+      rules: {
+        '@typescript-eslint/no-unused-vars': [
+          ERROR,
+          {
+            argsIgnorePattern: '^_',
+            ignoreRestSiblings: true,
+            varsIgnorePattern: '^React$',
+          },
+        ],
+      },
+    },
+  ],
 };
 
 module.exports = eslintConfig;
