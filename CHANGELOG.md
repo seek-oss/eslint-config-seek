@@ -1,5 +1,11 @@
 # eslint-config-seek
 
+## 11.3.1
+
+### Patch Changes
+
+- Add a temporary override until everybody removes the `React` import ([#122](https://github.com/seek-oss/eslint-config-seek/pull/122))
+
 ## 11.3.0
 
 ### Minor Changes
