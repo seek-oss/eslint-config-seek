@@ -174,17 +174,6 @@ const baseConfig = {
         // However, there is a pending PR which improves the behaviour of this rule https://github.com/import-js/eslint-plugin-import/pull/2716
         // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-duplicates.md#inline-type-imports
         'import/no-duplicates': [ERROR, { 'prefer-inline': true }],
-
-        '@typescript-eslint/prefer-nullish-coalescing': [
-          'error',
-          {
-            ignoreMixedLogicalExpressions: true,
-            ignorePrimitives: {
-              string: true,
-              boolean: true,
-            },
-          },
-        ],
       },
     },
     {
