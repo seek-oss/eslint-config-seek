@@ -118,8 +118,8 @@ const baseConfig = {
         warnOnUnsupportedTypeScriptVersion: false,
       },
       extends: [
-        'plugin:@typescript-eslint/eslint-recommended',
         'plugin:@typescript-eslint/recommended',
+        'plugin:@typescript-eslint/stylistic',
         'prettier',
       ],
       settings: {
