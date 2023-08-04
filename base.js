@@ -118,8 +118,8 @@ const baseConfig = {
         warnOnUnsupportedTypeScriptVersion: false,
       },
       extends: [
-        'plugin:@typescript-eslint/eslint-recommended',
         'plugin:@typescript-eslint/recommended',
+        'plugin:@typescript-eslint/stylistic',
         'prettier',
       ],
       settings: {
@@ -130,6 +130,7 @@ const baseConfig = {
         },
       },
       rules: {
+        '@typescript-eslint/array-simple': [ERROR, { default: 'array-simple' }],
         '@typescript-eslint/no-unused-expressions': ERROR,
         '@typescript-eslint/no-unused-vars': [
           ERROR,
