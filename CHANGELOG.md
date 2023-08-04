@@ -1,5 +1,11 @@
 # eslint-config-seek
 
+## 12.0.1
+
+### Patch Changes
+
+- Fix array-type rule ([#128](https://github.com/seek-oss/eslint-config-seek/pull/128))
+
 ## 12.0.0
 
 ### Major Changes
