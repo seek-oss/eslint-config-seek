@@ -1,5 +1,15 @@
 # eslint-config-seek
 
+## 12.0.0
+
+### Major Changes
+
+- Bump up typescript-eslint monorepo to ^6.0.0. ([#125](https://github.com/seek-oss/eslint-config-seek/pull/125))
+
+  This requires eslint 7+.
+
+  This change also includes a number of rule changes to the default configuration. Read the [release notes](https://typescript-eslint.io/blog/announcing-typescript-eslint-v6) for more information.
+
 ## 11.3.1
 
 ### Patch Changes
