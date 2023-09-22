@@ -10,6 +10,10 @@ const reactRules = {
   'react/no-children-prop': ERROR,
   'react/display-name': OFF,
   'react/prop-types': OFF,
+  'react/jsx-curly-brace-presence': [
+    ERROR,
+    { props: 'never', children: 'never', propElementValues: 'always' },
+  ],
 };
 
 /** @type {import('eslint').Linter.Config} */
