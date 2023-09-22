@@ -14,7 +14,6 @@ const reactRules = {
     ERROR,
     { props: 'never', children: 'never', propElementValues: 'always' },
   ],
-  'sort-imports': ['error', { ignoreDeclarationSort: true }],
 };
 
 /** @type {import('eslint').Linter.Config} */
