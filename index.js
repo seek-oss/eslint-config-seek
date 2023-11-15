@@ -12,7 +12,7 @@ const reactRules = {
   'react/prop-types': OFF,
   'react/jsx-curly-brace-presence': [
     ERROR,
-    { props: 'never', children: 'never', propElementValues: 'always' },
+    { props: 'never', children: 'ignore', propElementValues: 'always' },
   ],
 };
 
