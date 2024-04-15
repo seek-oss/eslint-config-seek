@@ -131,6 +131,7 @@ const baseConfig = {
       },
       rules: {
         '@typescript-eslint/array-type': [ERROR, { default: 'array-simple' }],
+        '@typescript-eslint/consistent-type-definitions': OFF,
         '@typescript-eslint/no-unused-expressions': ERROR,
         '@typescript-eslint/no-unused-vars': [
           ERROR,
