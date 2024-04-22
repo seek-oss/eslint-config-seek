@@ -1,11 +1,7 @@
-const path = require('path');
 const root = require('find-root')(process.cwd());
 
 const OFF = 0;
 const ERROR = 2;
-
-const rulesDirPlugin = require('eslint-plugin-rulesdir');
-rulesDirPlugin.RULES_DIR = path.join(__dirname, 'rules');
 
 const baseRules = {
   // Possible Errors
@@ -218,17 +214,11 @@ const baseConfig = {
     {
       // Cypress config
       files: [`**/cypress/**/*.{${allExtensions}}`],
-      // eslint-plugin-cypress doesn't support ESLint v8.
-      // Use fork by `@finsit` until this is solved.
-      // https://github.com/cypress-io/eslint-plugin-cypress/issues/89
-      extends: ['plugin:@finsit/cypress/recommended'],
+      extends: ['plugin:cypress/recommended'],
       env: {
-        '@finsit/cypress/globals': true,
+        'cypress/globals': true,
       },
-      plugins: ['@finsit/cypress', 'rulesdir'],
-      rules: {
-        'rulesdir/unsafe-to-chain-command': ERROR,
-      },
+      plugins: ['cypress'],
     },
   ],
 };
