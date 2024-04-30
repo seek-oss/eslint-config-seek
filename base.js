@@ -20,6 +20,7 @@ const baseRules = {
   'no-eval': ERROR,
   'no-extend-native': ERROR,
   'no-extra-bind': ERROR,
+  'no-fallthrough': ERROR,
   'no-floating-decimal': ERROR,
   'no-implicit-coercion': ERROR,
   'no-implied-eval': ERROR,
