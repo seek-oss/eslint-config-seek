@@ -1,5 +1,39 @@
 # eslint-config-seek
 
+## 13.1.0
+
+### Minor Changes
+
+- Adds [no-fallthrough][docs] as an error. ([#135](https://github.com/seek-oss/eslint-config-seek/pull/135))
+  This disallows fallthrough of case statements in switch statements.
+
+  [docs]: https://eslint.org/docs/latest/rules/no-fallthrough
+
+  ### Examples
+
+  You need to add a `break`, `return` or `throw` to each case. You can also skip this rule if it is intentionally absent (however that is a rare scenario).
+
+  ```diff
+  switch (name) {
+    case 'John':
+      console.log('Hi John');
+  +   break;
+  }
+  ```
+
+### Patch Changes
+
+- Disable [`@typescript-eslint/consistent-type-definition` rule][rule] ([#139](https://github.com/seek-oss/eslint-config-seek/pull/139))
+
+  [rule]: https://typescript-eslint.io/rules/consistent-type-definitions/
+
+- Revert from [`@finsit/eslint-plugin-cypress`] back to [`eslint-plugin-cypress`] ([#141](https://github.com/seek-oss/eslint-config-seek/pull/141))
+
+  The official plugin now supports ESLint v8. Consumers that were overriding `@finsit/cypress/*` rules will need to override `cypress/*` rules instead.
+
+  [`@finsit/eslint-plugin-cypress`]: https://github.com/foretagsplatsen/eslint-plugin-cypress
+  [`eslint-plugin-cypress`]: https://github.com/cypress-io/eslint-plugin-cypress
+
 ## 13.0.0
 
 ### Major Changes
