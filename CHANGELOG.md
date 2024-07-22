@@ -1,5 +1,11 @@
 # eslint-config-seek
 
+## 13.1.1
+
+### Patch Changes
+
+- Update and unpin `eslint-import-resolver-typescript` dependency ([#143](https://github.com/seek-oss/eslint-config-seek/pull/143))
+
 ## 13.1.0
 
 ### Minor Changes
