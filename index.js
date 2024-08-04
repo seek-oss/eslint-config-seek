@@ -42,7 +42,6 @@ const eslintConfig = {
   },
   overrides: [
     {
-      // temporary override until everybody removes the React import
       files: [`**/*.tsx`],
       rules: {
         '@typescript-eslint/no-unused-vars': [
@@ -50,7 +49,6 @@ const eslintConfig = {
           {
             argsIgnorePattern: '^_',
             ignoreRestSiblings: true,
-            varsIgnorePattern: '^React$',
           },
         ],
       },
