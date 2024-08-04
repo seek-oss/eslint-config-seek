@@ -1,3 +1,19 @@
+const react = require('eslint-plugin-react');
+const reactHooks = require('eslint-plugin-react-hooks');
+const base = require('./base');
+const { fixupPluginRules } = require('@eslint/compat');
+
+const globals = require('globals');
+const js = require('@eslint/js');
+
+const { FlatCompat } = require('@eslint/eslintrc');
+
+const compat = new FlatCompat({
+  baseDirectory: __dirname,
+  recommendedConfig: js.configs.recommended,
+  allConfig: js.configs.all,
+});
+
 const OFF = 0;
 const ERROR = 2;
 
@@ -16,44 +32,49 @@ const reactRules = {
   ],
 };
 
-/** @type {import('eslint').Linter.Config} */
-const eslintConfig = {
-  env: {
-    browser: true,
-  },
-  settings: {
-    react: {
-      version: 'detect',
+module.exports = [
+  ...compat.extends('plugin:react/recommended', 'plugin:react/jsx-runtime'),
+  ...base,
+  {
+    plugins: {
+      react,
+      'react-hooks': fixupPluginRules(reactHooks),
     },
-  },
-  plugins: ['react', 'react-hooks'],
-  extends: [
-    'plugin:react/recommended',
-    'plugin:react/jsx-runtime',
-    './base.js',
-  ],
-  parserOptions: {
-    babelOptions: {
-      presets: [require.resolve('@babel/preset-react')],
-    },
-  },
-  rules: {
-    ...reactRules,
-  },
-  overrides: [
-    {
-      files: [`**/*.tsx`],
-      rules: {
-        '@typescript-eslint/no-unused-vars': [
-          ERROR,
-          {
-            argsIgnorePattern: '^_',
-            ignoreRestSiblings: true,
-          },
-        ],
+
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+      },
+
+      ecmaVersion: 6,
+      sourceType: 'script',
+
+      parserOptions: {
+        babelOptions: {
+          presets: [require.resolve('@babel/preset-react')],
+        },
       },
     },
-  ],
-};
 
-module.exports = eslintConfig;
+    settings: {
+      react: {
+        version: 'detect',
+      },
+    },
+
+    rules: reactRules,
+  },
+  {
+    files: ['**/*.tsx'],
+
+    rules: {
+      '@typescript-eslint/no-unused-vars': [
+        ERROR,
+        {
+          argsIgnorePattern: '^_',
+          ignoreRestSiblings: true,
+        },
+      ],
+    },
+  },
+];

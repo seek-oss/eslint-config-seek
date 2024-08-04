@@ -12,7 +12,9 @@ const {
  */
 const defaultChangelogFunctions = {
   getDependencyReleaseLine: async (changesets, dependenciesUpdated) => {
-    if (dependenciesUpdated.length === 0) return '';
+    if (dependenciesUpdated.length === 0) {
+      return '';
+    }
 
     const changesetLinks = changesets.map(
       (changeset) => `- Updated dependencies [${changeset.commit}]`,
@@ -55,13 +57,15 @@ const gitHubChangelogFunctions = {
         'Please provide a repo to this changelog generator like this:\n"changelog": ["./changelog.js", { "repo": "org/repo" }]',
       );
     }
-    if (dependenciesUpdated.length === 0) return '';
+    if (dependenciesUpdated.length === 0) {
+      return '';
+    }
 
     const changesetLink = `- Updated dependencies [${(
       await Promise.all(
         changesets.map(async (cs) => {
           if (cs.commit) {
-            let { links } = await getInfo({
+            const { links } = await getInfo({
               repo: options.repo,
               commit: cs.commit,
             });
@@ -93,16 +97,17 @@ const gitHubChangelogFunctions = {
 
     const replacedChangelog = changeset.summary
       .replace(/^\s*(?:pr|pull|pull\s+request):\s*#?(\d+)/im, (_, pr) => {
-        let num = Number(pr);
-        if (!isNaN(num)) prFromSummary = num;
+        const num = Number(pr);
+        if (!isNaN(num)) {
+          prFromSummary = num;
+        }
         return '';
       })
       .replace(/^\s*commit:\s*([^\s]+)/im, (_, commit) => {
         commitFromSummary = commit;
         return '';
       })
-      .replace(/^\s*(?:author|user):\s*@?([^\s]+)/gim, (_, user) => {
-        usersFromSummary.push(user);
+      .replace(/^\s*(?:author|user):\s*@?([^\s]+)/gim, () => {
         return '';
       })
       .trim();
@@ -113,6 +118,7 @@ const gitHubChangelogFunctions = {
 
     const links = await (async () => {
       if (prFromSummary !== undefined) {
+        // eslint-disable-next-line no-shadow
         let { links } = await getInfoFromPullRequest({
           repo: options.repo,
           pull: prFromSummary,
@@ -127,7 +133,8 @@ const gitHubChangelogFunctions = {
       }
       const commitToFetchFrom = commitFromSummary || changeset.commit;
       if (commitToFetchFrom) {
-        let { links } = await getInfo({
+        // eslint-disable-next-line no-shadow
+        const { links } = await getInfo({
           repo: options.repo,
           commit: commitToFetchFrom,
         });
@@ -152,6 +159,7 @@ const gitHubChangelogFunctions = {
 if (process.env.GITHUB_TOKEN) {
   module.exports = gitHubChangelogFunctions;
 } else {
+  // eslint-disable-next-line no-console
   console.warn(
     `Defaulting to Git-based versioning.
 Enable GitHub-based versioning by setting the GITHUB_TOKEN environment variable.
