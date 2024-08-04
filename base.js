@@ -79,6 +79,15 @@ const baseRules = {
 const { js: jsExtensions, ts: tsExtensions } = require('./extensions');
 const allExtensions = [...jsExtensions, ...tsExtensions];
 
+const settings = {
+  'import-x/resolver': {
+    typescript: true,
+    node: {
+      moduleDirectory: [root, 'node_modules'],
+    },
+  },
+};
+
 /** @type {import('eslint').Linter.Config} */
 const baseConfig = {
   parser: '@babel/eslint-parser',
@@ -90,14 +99,9 @@ const baseConfig = {
   env: {
     node: true,
   },
-  plugins: ['import'],
-  extends: [
-    // this config enables eslint-plugin-import to resolve JavaScript and TypeScript files
-    // https://github.com/import-js/eslint-plugin-import/blob/v2.26.0/config/typescript.js
-    // Some rules provided by eslint-plugin-import e.g. `import/no-duplicates` don't work without it
-    'plugin:import/typescript',
-    'prettier',
-  ],
+  plugins: ['import-x'],
+  extends: ['prettier', 'plugin:import-x/typescript'],
+  settings,
   rules: {
     ...baseRules,
   },
@@ -119,13 +123,7 @@ const baseConfig = {
         'plugin:@typescript-eslint/stylistic',
         'prettier',
       ],
-      settings: {
-        // adds comprehensive TypeScript support to eslint-plugin-import
-        // https://github.com/import-js/eslint-import-resolver-typescript
-        'import/resolver': {
-          typescript: {},
-        },
-      },
+      settings,
       rules: {
         '@typescript-eslint/array-type': [ERROR, { default: 'array-simple' }],
         '@typescript-eslint/consistent-type-definitions': OFF,
@@ -172,7 +170,7 @@ const baseConfig = {
         // In this case, we want type imports to be inlined when merging with the other imports.
         // However, there is a pending PR which improves the behaviour of this rule https://github.com/import-js/eslint-plugin-import/pull/2716
         // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-duplicates.md#inline-type-imports
-        'import/no-duplicates': [ERROR, { 'prefer-inline': true }],
+        'import-x/no-duplicates': [ERROR, { 'prefer-inline': true }],
       },
     },
     {
@@ -181,23 +179,17 @@ const baseConfig = {
       env: {
         es6: true,
       },
-      extends: ['plugin:import/errors', 'plugin:import/warnings'],
-      settings: {
-        'import/resolver': {
-          node: {
-            moduleDirectory: [root, 'node_modules'],
-          },
-        },
-      },
+      extends: ['plugin:import-x/errors', 'plugin:import-x/warnings'],
+      settings,
       rules: {
         'no-undef': ERROR,
         'no-use-before-define': [ERROR, { functions: false }],
         'no-unused-expressions': ERROR,
-        'import/no-unresolved': [
+        'import-x/no-unresolved': [
           ERROR,
           { commonjs: true, amd: true, ignore: ['.svg$', '^file?'] },
         ],
-        'import/no-duplicates': ERROR,
+        'import-x/no-duplicates': ERROR,
       },
     },
     {
