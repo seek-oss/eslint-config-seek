@@ -3,7 +3,7 @@ const importX = require('eslint-plugin-import-x');
 const globals = require('globals');
 const babelParser = require('@babel/eslint-parser');
 const tsParser = require('@typescript-eslint/parser');
-const jest = require('eslint-plugin-jest');
+const jestPlugin = require('eslint-plugin-jest');
 const cypress = require('eslint-plugin-cypress');
 const js = require('@eslint/js');
 
@@ -234,7 +234,7 @@ module.exports = [
       `**/__tests__/**/*.{${allExtensions}}`,
       `**/*.@(spec|test).{${allExtensions}}`,
     ],
-    plugins: { jest },
+    plugins: { jest: jestPlugin },
     languageOptions: {
       globals: {
         ...globals.jest,
