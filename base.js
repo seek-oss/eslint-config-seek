@@ -145,7 +145,7 @@ module.exports = [
       sourceType: 'module',
 
       parserOptions: {
-        project: true,
+        projectService: true,
         warnOnUnsupportedTypeScriptVersion: false,
       },
     },
