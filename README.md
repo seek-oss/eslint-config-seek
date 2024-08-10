@@ -5,7 +5,7 @@
 
 This package includes the shareable ESLint configuration used by [SEEK](https://github.com/seek-oss/).
 
-## Usage in sku Projects
+## Usage in sku and skuba Projects
 
 The easiest way to use this configuration is with [sku](https://github.com/seek-oss/sku) or [skuba](https://github.com/seek-oss/skuba).
 
