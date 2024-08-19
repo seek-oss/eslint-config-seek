@@ -17,7 +17,7 @@ If you want to use this ESLint configuration in a project not built with sku or 
 
 First, install this package, and the necessary peer dependencies listed in this project's [package.json](package.json).
 
-Then create a file named `eslint.config.js` with following contents in the root folder of your project:
+Then create a file named `eslint.config.js` with the following contents in the root folder of your project:
 
 ```js
 module.exports = require('eslint-config-seek');
