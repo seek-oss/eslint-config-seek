@@ -19,7 +19,7 @@
   },
   "scripts": {
     "release": "changeset publish",
-    "test": "eslint --config eslint.config.js . && eslint --config eslint.config.base.js .",
+    "test": "eslint --config index.js . && eslint --config base.js .",
     "changeset-version": "changeset version && prettier --write ."
   },
   "homepage": "https://github.com/seek-oss/eslint-config-seek#readme",
