@@ -6,6 +6,7 @@ const tsParser = require('@typescript-eslint/parser');
 const jestPlugin = require('eslint-plugin-jest');
 const cypress = require('eslint-plugin-cypress');
 const js = require('@eslint/js');
+const unusedImports = require('eslint-plugin-unused-imports');
 
 const { FlatCompat } = require('@eslint/eslintrc');
 
@@ -64,10 +65,15 @@ const baseRules = {
   'no-label-var': ERROR,
   'no-shadow': ERROR,
   'no-undef-init': ERROR,
-  'no-unused-vars': [
+
+  // Use unused-imports instead of no-unused-vars for autofix support
+  'no-unused-vars': OFF,
+  'unused-imports/no-unused-imports': ERROR,
+  'unused-imports/no-unused-vars': [
     ERROR,
     { argsIgnorePattern: '^_', ignoreRestSiblings: true },
   ],
+
   'handle-callback-err': ERROR,
   'no-new-require': ERROR,
   'no-path-concat': ERROR,
@@ -108,6 +114,7 @@ module.exports = [
   {
     plugins: {
       'import-x': importX,
+      'unused-imports': unusedImports,
     },
 
     languageOptions: {
@@ -149,15 +156,21 @@ module.exports = [
         warnOnUnsupportedTypeScriptVersion: false,
       },
     },
+    plugins: { 'unused-imports': unusedImports },
     settings,
     rules: {
       '@typescript-eslint/array-type': [ERROR, { default: 'array-simple' }],
       '@typescript-eslint/consistent-type-definitions': OFF,
       '@typescript-eslint/no-unused-expressions': ERROR,
-      '@typescript-eslint/no-unused-vars': [
+
+      // Use unused-imports instead of no-unused-vars for autofix support
+      '@typescript-eslint/no-unused-vars': [OFF],
+      'unused-imports/no-unused-imports': ERROR,
+      'unused-imports/no-unused-vars': [
         ERROR,
         { argsIgnorePattern: '^_', ignoreRestSiblings: true },
       ],
+
       '@typescript-eslint/no-use-before-define': OFF,
       '@typescript-eslint/no-non-null-assertion': OFF,
       '@typescript-eslint/ban-ts-comment': OFF,

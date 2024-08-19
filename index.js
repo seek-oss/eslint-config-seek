@@ -64,17 +64,4 @@ module.exports = [
 
     rules: reactRules,
   },
-  {
-    files: ['**/*.tsx'],
-
-    rules: {
-      '@typescript-eslint/no-unused-vars': [
-        ERROR,
-        {
-          argsIgnorePattern: '^_',
-          ignoreRestSiblings: true,
-        },
-      ],
-    },
-  },
 ];
