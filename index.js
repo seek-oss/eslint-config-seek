@@ -64,4 +64,19 @@ module.exports = [
 
     rules: reactRules,
   },
+  {
+    files: ['**/*.tsx'],
+
+    rules: {
+      // temporary override until everybody removes the React import
+      '@typescript-eslint/no-unused-vars': [
+        ERROR,
+        {
+          argsIgnorePattern: '^_',
+          ignoreRestSiblings: true,
+          varsIgnorePattern: '^React$',
+        },
+      ],
+    },
+  },
 ];
