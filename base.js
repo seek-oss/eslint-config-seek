@@ -1,4 +1,3 @@
-const root = require('find-root')(process.cwd());
 const importX = require('eslint-plugin-import-x');
 const globals = require('globals');
 const babelParser = require('@babel/eslint-parser');
@@ -97,9 +96,7 @@ const allExtensions = [...jsExtensions, ...tsExtensions];
 const settings = {
   'import-x/resolver': {
     typescript: true,
-    node: {
-      moduleDirectory: [root, 'node_modules'],
-    },
+    node: true,
   },
 };
 
