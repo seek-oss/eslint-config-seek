@@ -47,7 +47,7 @@ module.exports = [
       },
 
       ecmaVersion: 6,
-      sourceType: 'script',
+      sourceType: 'module',
 
       parserOptions: {
         babelOptions: {
