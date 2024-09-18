@@ -111,8 +111,6 @@ module.exports = [
         ...globals.node,
       },
 
-      ecmaVersion: 6,
-
       parserOptions: {
         requireConfigFile: false,
       },
