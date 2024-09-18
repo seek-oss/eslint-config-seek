@@ -113,6 +113,8 @@ module.exports = [
 
       parserOptions: {
         requireConfigFile: false,
+        ecmaVersion: 'latest',
+        sourceType: 'module',
       },
     },
     settings,
