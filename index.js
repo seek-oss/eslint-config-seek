@@ -42,18 +42,7 @@ module.exports = [
     },
 
     languageOptions: {
-      globals: {
-        ...globals.browser,
-      },
-
-      ecmaVersion: 6,
-      sourceType: 'module',
-
-      parserOptions: {
-        babelOptions: {
-          presets: [require.resolve('@babel/preset-react')],
-        },
-      },
+      globals: globals.browser,
     },
 
     settings: {

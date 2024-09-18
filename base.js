@@ -1,6 +1,5 @@
 const importX = require('eslint-plugin-import-x');
 const globals = require('globals');
-const babelParser = require('@babel/eslint-parser');
 const tsParser = require('@typescript-eslint/parser');
 const jestPlugin = require('eslint-plugin-jest');
 const cypress = require('eslint-plugin-cypress');
@@ -112,9 +111,7 @@ module.exports = [
         ...globals.node,
       },
 
-      parser: babelParser,
       ecmaVersion: 6,
-      sourceType: 'module',
 
       parserOptions: {
         requireConfigFile: false,
@@ -138,8 +135,6 @@ module.exports = [
 
     languageOptions: {
       parser: tsParser,
-      ecmaVersion: 2022,
-      sourceType: 'module',
 
       parserOptions: {
         projectService: true,
