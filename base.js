@@ -1,17 +1,9 @@
 const importX = require('eslint-plugin-import-x');
 const globals = require('globals');
-const tsParser = require('@typescript-eslint/parser');
 const jestPlugin = require('eslint-plugin-jest');
 const cypress = require('eslint-plugin-cypress');
-const js = require('@eslint/js');
-
-const { FlatCompat } = require('@eslint/eslintrc');
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: js.configs.recommended,
-  allConfig: js.configs.all,
-});
+const eslintConfigPrettier = require('eslint-config-prettier');
+const tseslint = require('typescript-eslint');
 
 const OFF = 0;
 const ERROR = 2;
@@ -100,12 +92,17 @@ const settings = {
 };
 
 module.exports = [
-  ...compat.extends('prettier', 'plugin:import-x/typescript'),
+  eslintConfigPrettier,
+  importX.flatConfigs.typescript,
   {
-    plugins: {
-      'import-x': importX,
-    },
-
+    ...importX.flatConfigs.errors,
+    files: [`**/*.{${jsExtensions}}`],
+  },
+  {
+    ...importX.flatConfigs.warnings,
+    files: [`**/*.{${jsExtensions}}`],
+  },
+  {
     languageOptions: {
       globals: {
         ...globals.node,
@@ -120,21 +117,17 @@ module.exports = [
     settings,
     rules: baseRules,
   },
-  ...compat
-    .extends(
-      'plugin:@typescript-eslint/recommended',
-      'plugin:@typescript-eslint/stylistic',
-      'prettier',
-    )
-    .map((config) => ({
+  ...[tseslint.configs.recommended, tseslint.configs.stylistic].map(
+    (config) => ({
       ...config,
       files: [`**/*.{${tsExtensions}}`],
-    })),
+    }),
+  ),
   {
     files: [`**/*.{${tsExtensions}}`],
 
     languageOptions: {
-      parser: tsParser,
+      parser: tseslint.parser,
 
       parserOptions: {
         projectService: true,
@@ -191,12 +184,6 @@ module.exports = [
       'import-x/no-duplicates': [ERROR, { 'prefer-inline': true }],
     },
   },
-  ...compat
-    .extends('plugin:import-x/errors', 'plugin:import-x/warnings')
-    .map((config) => ({
-      ...config,
-      files: [`**/*.{${jsExtensions}}`],
-    })),
   {
     files: [`**/*.{${jsExtensions}}`],
     languageOptions: {
@@ -214,13 +201,13 @@ module.exports = [
       'import-x/no-duplicates': ERROR,
     },
   },
-  ...compat.extends('plugin:jest/recommended').map((config) => ({
-    ...config,
+  {
+    ...jestPlugin.configs['flat/recommended'],
     files: [
       `**/__tests__/**/*.{${allExtensions}}`,
       `**/*.@(spec|test).{${allExtensions}}`,
     ],
-  })),
+  },
   {
     files: [
       `**/__tests__/**/*.{${allExtensions}}`,
@@ -233,10 +220,10 @@ module.exports = [
       },
     },
   },
-  ...compat.extends('plugin:cypress/recommended').map((config) => ({
-    ...config,
+  {
+    ...cypress.configs.recommended,
     files: [`**/cypress/**/*.{${allExtensions}}`],
-  })),
+  },
   {
     files: [`**/cypress/**/*.{${allExtensions}}`],
     plugins: { cypress },

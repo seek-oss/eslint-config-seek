@@ -4,15 +4,6 @@ const base = require('./base');
 const { fixupPluginRules } = require('@eslint/compat');
 
 const globals = require('globals');
-const js = require('@eslint/js');
-
-const { FlatCompat } = require('@eslint/eslintrc');
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: js.configs.recommended,
-  allConfig: js.configs.all,
-});
 
 const OFF = 0;
 const ERROR = 2;
@@ -33,7 +24,8 @@ const reactRules = {
 };
 
 module.exports = [
-  ...compat.extends('plugin:react/recommended', 'plugin:react/jsx-runtime'),
+  react.configs.flat.recommended,
+  react.configs.flat['jsx-runtime'],
   ...base,
   {
     plugins: {
