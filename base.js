@@ -93,13 +93,18 @@ const settings = {
 
 module.exports = [
   eslintConfigPrettier,
+  {
+    plugins: {
+      'import-x': importX,
+    },
+  },
   importX.flatConfigs.typescript,
   {
-    ...importX.flatConfigs.errors,
+    rules: importX.flatConfigs.errors.rules,
     files: [`**/*.{${jsExtensions}}`],
   },
   {
-    ...importX.flatConfigs.warnings,
+    rules: importX.flatConfigs.warnings.rules,
     files: [`**/*.{${jsExtensions}}`],
   },
   {
@@ -125,9 +130,6 @@ module.exports = [
   ),
   {
     files: [`**/*.{${tsExtensions}}`],
-    plugins: {
-      'import-x': importX,
-    },
 
     languageOptions: {
       parser: tseslint.parser,
