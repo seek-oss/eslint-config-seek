@@ -117,7 +117,7 @@ module.exports = [
     settings,
     rules: baseRules,
   },
-  ...[tseslint.configs.recommended, tseslint.configs.stylistic].map(
+  ...[...tseslint.configs.recommended, ...tseslint.configs.stylistic].map(
     (config) => ({
       ...config,
       files: [`**/*.{${tsExtensions}}`],
@@ -125,6 +125,9 @@ module.exports = [
   ),
   {
     files: [`**/*.{${tsExtensions}}`],
+    plugins: {
+      'import-x': importX,
+    },
 
     languageOptions: {
       parser: tseslint.parser,
