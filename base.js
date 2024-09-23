@@ -1,4 +1,9 @@
-const root = require('find-root')(process.cwd());
+const importX = require('eslint-plugin-import-x');
+const globals = require('globals');
+const jestPlugin = require('eslint-plugin-jest');
+const cypress = require('eslint-plugin-cypress');
+const eslintConfigPrettier = require('eslint-config-prettier');
+const tseslint = require('typescript-eslint');
 
 const OFF = 0;
 const ERROR = 2;
@@ -79,149 +84,158 @@ const baseRules = {
 const { js: jsExtensions, ts: tsExtensions } = require('./extensions');
 const allExtensions = [...jsExtensions, ...tsExtensions];
 
-/** @type {import('eslint').Linter.Config} */
-const baseConfig = {
-  parser: '@babel/eslint-parser',
-  parserOptions: {
-    requireConfigFile: false,
-    sourceType: 'module',
-  },
-  root: true,
-  env: {
+const settings = {
+  'import-x/resolver': {
+    typescript: true,
     node: true,
   },
-  plugins: ['import'],
-  extends: [
-    // this config enables eslint-plugin-import to resolve JavaScript and TypeScript files
-    // https://github.com/import-js/eslint-plugin-import/blob/v2.26.0/config/typescript.js
-    // Some rules provided by eslint-plugin-import e.g. `import/no-duplicates` don't work without it
-    'plugin:import/typescript',
-    'prettier',
-  ],
-  rules: {
-    ...baseRules,
-  },
-  overrides: [
-    {
-      // TypeScript config
-      files: [`**/*.{${tsExtensions}}`],
-      parser: '@typescript-eslint/parser',
-      parserOptions: {
-        // https://github.com/typescript-eslint/typescript-eslint/issues/6544
-        allowAutomaticSingleRunInference: true,
-        ecmaVersion: 2022,
-        project: true,
-        sourceType: 'module',
-        warnOnUnsupportedTypeScriptVersion: false,
-      },
-      extends: [
-        'plugin:@typescript-eslint/recommended',
-        'plugin:@typescript-eslint/stylistic',
-        'prettier',
-      ],
-      settings: {
-        // adds comprehensive TypeScript support to eslint-plugin-import
-        // https://github.com/import-js/eslint-import-resolver-typescript
-        'import/resolver': {
-          typescript: {},
-        },
-      },
-      rules: {
-        '@typescript-eslint/array-type': [ERROR, { default: 'array-simple' }],
-        '@typescript-eslint/consistent-type-definitions': OFF,
-        '@typescript-eslint/no-unused-expressions': ERROR,
-        '@typescript-eslint/no-unused-vars': [
-          ERROR,
-          { argsIgnorePattern: '^_', ignoreRestSiblings: true },
-        ],
-        '@typescript-eslint/no-use-before-define': OFF,
-        '@typescript-eslint/no-non-null-assertion': OFF,
-        '@typescript-eslint/ban-ts-comment': OFF,
-        '@typescript-eslint/no-explicit-any': OFF,
-        '@typescript-eslint/explicit-function-return-type': OFF,
-        '@typescript-eslint/no-empty-function': OFF,
-        '@typescript-eslint/no-empty-interface': OFF,
-        '@typescript-eslint/no-inferrable-types': [
-          ERROR,
-          { ignoreParameters: true },
-        ],
-        // prefer TypeScript exhaustiveness checking
-        // https://www.typescriptlang.org/docs/handbook/advanced-types.html#exhaustiveness-checking
-        'default-case': OFF,
-        'arrow-body-style': [ERROR, 'as-needed'],
-        // Use `typescript-eslint`'s no-shadow to avoid false positives with enums
-        // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-shadow.md
-        'no-shadow': OFF,
-        '@typescript-eslint/no-shadow': ERROR,
-
-        // These two rules deal with autofixing type imports/exports
-        // https://typescript-eslint.io/rules/consistent-type-imports
-        '@typescript-eslint/consistent-type-imports': [
-          ERROR,
-          { fixStyle: 'inline-type-imports' },
-        ],
-        // https://typescript-eslint.io/rules/consistent-type-exports
-        '@typescript-eslint/consistent-type-exports': [
-          ERROR,
-          { fixMixedExportsWithInlineTypeSpecifier: true },
-        ],
-        // https://typescript-eslint.io/rules/no-import-type-side-effects
-        '@typescript-eslint/no-import-type-side-effects': ERROR,
-
-        // This rule deals with merging multiple imports from the same module.
-        // In this case, we want type imports to be inlined when merging with the other imports.
-        // However, there is a pending PR which improves the behaviour of this rule https://github.com/import-js/eslint-plugin-import/pull/2716
-        // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-duplicates.md#inline-type-imports
-        'import/no-duplicates': [ERROR, { 'prefer-inline': true }],
-      },
-    },
-    {
-      // JavaScript config
-      files: [`**/*.{${jsExtensions}}`],
-      env: {
-        es6: true,
-      },
-      extends: ['plugin:import/errors', 'plugin:import/warnings'],
-      settings: {
-        'import/resolver': {
-          node: {
-            moduleDirectory: [root, 'node_modules'],
-          },
-        },
-      },
-      rules: {
-        'no-undef': ERROR,
-        'no-use-before-define': [ERROR, { functions: false }],
-        'no-unused-expressions': ERROR,
-        'import/no-unresolved': [
-          ERROR,
-          { commonjs: true, amd: true, ignore: ['.svg$', '^file?'] },
-        ],
-        'import/no-duplicates': ERROR,
-      },
-    },
-    {
-      // Jest config
-      files: [
-        `**/__tests__/**/*.{${allExtensions}}`,
-        `**/*.@(spec|test).{${allExtensions}}`,
-      ],
-      env: {
-        jest: true,
-      },
-      extends: ['plugin:jest/recommended'],
-      plugins: ['jest'],
-    },
-    {
-      // Cypress config
-      files: [`**/cypress/**/*.{${allExtensions}}`],
-      extends: ['plugin:cypress/recommended'],
-      env: {
-        'cypress/globals': true,
-      },
-      plugins: ['cypress'],
-    },
-  ],
 };
 
-module.exports = baseConfig;
+module.exports = [
+  eslintConfigPrettier,
+  {
+    plugins: {
+      'import-x': importX,
+    },
+  },
+  importX.flatConfigs.typescript,
+  {
+    rules: importX.flatConfigs.errors.rules,
+    files: [`**/*.{${jsExtensions}}`],
+  },
+  {
+    rules: importX.flatConfigs.warnings.rules,
+    files: [`**/*.{${jsExtensions}}`],
+  },
+  {
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
+
+      parserOptions: {
+        requireConfigFile: false,
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+      },
+    },
+    settings,
+    rules: baseRules,
+  },
+  ...[...tseslint.configs.recommended, ...tseslint.configs.stylistic].map(
+    (config) => ({
+      ...config,
+      files: [`**/*.{${tsExtensions}}`],
+    }),
+  ),
+  {
+    files: [`**/*.{${tsExtensions}}`],
+
+    languageOptions: {
+      parser: tseslint.parser,
+
+      parserOptions: {
+        projectService: true,
+        warnOnUnsupportedTypeScriptVersion: false,
+      },
+    },
+    settings,
+    rules: {
+      '@typescript-eslint/array-type': [ERROR, { default: 'array-simple' }],
+      '@typescript-eslint/consistent-type-definitions': OFF,
+      '@typescript-eslint/no-unused-expressions': ERROR,
+      '@typescript-eslint/no-unused-vars': [
+        ERROR,
+        { argsIgnorePattern: '^_', ignoreRestSiblings: true },
+      ],
+      '@typescript-eslint/no-use-before-define': OFF,
+      '@typescript-eslint/no-non-null-assertion': OFF,
+      '@typescript-eslint/ban-ts-comment': OFF,
+      '@typescript-eslint/no-explicit-any': OFF,
+      '@typescript-eslint/explicit-function-return-type': OFF,
+      '@typescript-eslint/no-empty-function': OFF,
+      '@typescript-eslint/no-empty-interface': OFF,
+      '@typescript-eslint/no-inferrable-types': [
+        ERROR,
+        { ignoreParameters: true },
+      ],
+      // prefer TypeScript exhaustiveness checking
+      // https://www.typescriptlang.org/docs/handbook/advanced-types.html#exhaustiveness-checking
+      'default-case': OFF,
+      'arrow-body-style': [ERROR, 'as-needed'],
+      // Use `typescript-eslint`'s no-shadow to avoid false positives with enums
+      // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-shadow.md
+      'no-shadow': OFF,
+      '@typescript-eslint/no-shadow': ERROR,
+
+      // These two rules deal with autofixing type imports/exports
+      // https://typescript-eslint.io/rules/consistent-type-imports
+      '@typescript-eslint/consistent-type-imports': [
+        ERROR,
+        { fixStyle: 'inline-type-imports' },
+      ],
+      // https://typescript-eslint.io/rules/consistent-type-exports
+      '@typescript-eslint/consistent-type-exports': [
+        ERROR,
+        { fixMixedExportsWithInlineTypeSpecifier: true },
+      ],
+      // https://typescript-eslint.io/rules/no-import-type-side-effects
+      '@typescript-eslint/no-import-type-side-effects': ERROR,
+
+      // This rule deals with merging multiple imports from the same module.
+      // In this case, we want type imports to be inlined when merging with the other imports.
+      // However, there is a pending PR which improves the behaviour of this rule https://github.com/import-js/eslint-plugin-import/pull/2716
+      // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-duplicates.md#inline-type-imports
+      'import-x/no-duplicates': [ERROR, { 'prefer-inline': true }],
+    },
+  },
+  {
+    files: [`**/*.{${jsExtensions}}`],
+    languageOptions: {
+      globals: {},
+    },
+    settings,
+    rules: {
+      'no-undef': ERROR,
+      'no-use-before-define': [ERROR, { functions: false }],
+      'no-unused-expressions': ERROR,
+      'import-x/no-unresolved': [
+        ERROR,
+        { commonjs: true, amd: true, ignore: ['.svg$', '^file?'] },
+      ],
+      'import-x/no-duplicates': ERROR,
+    },
+  },
+  {
+    ...jestPlugin.configs['flat/recommended'],
+    files: [
+      `**/__tests__/**/*.{${allExtensions}}`,
+      `**/*.@(spec|test).{${allExtensions}}`,
+    ],
+  },
+  {
+    files: [
+      `**/__tests__/**/*.{${allExtensions}}`,
+      `**/*.@(spec|test).{${allExtensions}}`,
+    ],
+    plugins: { jest: jestPlugin },
+    languageOptions: {
+      globals: {
+        ...globals.jest,
+      },
+    },
+  },
+  {
+    ...cypress.configs.recommended,
+    files: [`**/cypress/**/*.{${allExtensions}}`],
+  },
+  {
+    files: [`**/cypress/**/*.{${allExtensions}}`],
+    plugins: { cypress },
+    languageOptions: {
+      globals: {
+        ...cypress.environments.globals.globals,
+      },
+    },
+  },
+];

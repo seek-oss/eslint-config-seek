@@ -5,35 +5,31 @@
 
 This package includes the shareable ESLint configuration used by [SEEK](https://github.com/seek-oss/).
 
-## Usage in sku Projects
+## Usage in sku and skuba Projects
 
-The easiest way to use this configuration is with [sku](https://github.com/seek-oss/sku), which includes it by default.
+The easiest way to use this configuration is with [sku](https://github.com/seek-oss/sku) or [skuba](https://github.com/seek-oss/skuba).
 
-**You don’t need to install it separately in sku projects.**
+**You don’t need to install it separately in sku and skuba projects.**
 
-## Usage Outside of sku
+## Usage Outside of sku and skuba
 
-If you want to use this ESLint configuration in a project not built with sku, you can install it with following steps.
+If you want to use this ESLint configuration in a project not built with sku or skuba, you can install it with following steps.
 
-First, install this package, ESLint and the necessary plugins listed in this project's [package.json](package.json).
+First, install this package, and the necessary peer dependencies listed in this project's [package.json](package.json).
 
-Then create a file named `.eslintrc` with following contents in the root folder of your project:
+Then create a file named `eslint.config.js` with the following contents in the root folder of your project:
 
-```json
-{
-  "extends": "seek"
-}
+```js
+module.exports = require('eslint-config-seek');
 ```
 
 The default configuration includes support for React projects. For projects that are not based on React, the "base" configuration should be used instead:
 
-```json
-{
-  "extends": "seek/base"
-}
+```js
+module.exports = require('eslint-config-seek/base');
 ```
 
-You can override the settings from `eslint-config-seek` by editing the `.eslintrc` file. Learn more about [configuring ESLint](http://eslint.org/docs/user-guide/configuring) on the ESLint website.
+You can override the settings from `eslint-config-seek` by editing the `eslint.config.js` file. Learn more about [configuring ESLint](https://eslint.org/docs/latest/use/configure/) on the ESLint website.
 
 ## License
 

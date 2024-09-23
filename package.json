@@ -19,40 +19,37 @@
   },
   "scripts": {
     "release": "changeset publish",
-    "test": "eslint . && eslint --config base.js .",
+    "test": "eslint --config index.js . && eslint --config base.js .",
     "changeset-version": "changeset version && prettier --write ."
   },
   "homepage": "https://github.com/seek-oss/eslint-config-seek#readme",
   "dependencies": {
-    "@babel/core": "^7.22.6",
-    "@babel/eslint-parser": "^7.22.6",
-    "@babel/preset-react": "^7.22.5",
-    "eslint-plugin-cypress": "^3.0.0",
-    "@typescript-eslint/eslint-plugin": "^7.2.0",
-    "@typescript-eslint/parser": "^7.2.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-import-resolver-typescript": "^3.6.1",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-jest": "^27.9.0",
-    "eslint-plugin-react": "^7.32.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "find-root": "^1.1.0"
+    "@eslint/compat": "^1.1.1",
+    "typescript-eslint": "^8.6.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-typescript": "^3.6.3",
+    "eslint-plugin-cypress": "^3.5.0",
+    "eslint-plugin-import-x": "^4.2.1",
+    "eslint-plugin-jest": "^28.8.0",
+    "eslint-plugin-react": "^7.35.0",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "globals": "^15.9.0"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.26.2",
-    "@changesets/get-github-info": "^0.5.2",
-    "eslint": "^8.56.0",
-    "prettier": "^2.8.4",
-    "typescript": "~5.4.2"
+    "@changesets/cli": "^2.27.7",
+    "@changesets/get-github-info": "^0.6.0",
+    "eslint": "^9.8.0",
+    "prettier": "^3.3.3",
+    "typescript": "~5.5.4"
   },
   "peerDependencies": {
-    "eslint": ">=8.56.0",
-    "typescript": ">=4.7.5"
+    "eslint": ">=9.9.1",
+    "typescript": ">=5.5.4"
   },
   "engines": {
     "node": ">=18.18.0"
   },
-  "packageManager": "pnpm@8.6.6",
+  "packageManager": "pnpm@9.6.0",
   "volta": {
     "node": "18.18.0"
   }

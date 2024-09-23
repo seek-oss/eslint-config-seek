@@ -1,3 +1,10 @@
+const react = require('eslint-plugin-react');
+const reactHooks = require('eslint-plugin-react-hooks');
+const base = require('./base');
+const { fixupPluginRules } = require('@eslint/compat');
+
+const globals = require('globals');
+
 const OFF = 0;
 const ERROR = 2;
 
@@ -16,46 +23,41 @@ const reactRules = {
   ],
 };
 
-/** @type {import('eslint').Linter.Config} */
-const eslintConfig = {
-  env: {
-    browser: true,
-  },
-  settings: {
-    react: {
-      version: 'detect',
+module.exports = [
+  react.configs.flat.recommended,
+  react.configs.flat['jsx-runtime'],
+  ...base,
+  {
+    plugins: {
+      react,
+      'react-hooks': fixupPluginRules(reactHooks),
     },
-  },
-  plugins: ['react', 'react-hooks'],
-  extends: [
-    'plugin:react/recommended',
-    'plugin:react/jsx-runtime',
-    './base.js',
-  ],
-  parserOptions: {
-    babelOptions: {
-      presets: [require.resolve('@babel/preset-react')],
+
+    languageOptions: {
+      globals: globals.browser,
     },
-  },
-  rules: {
-    ...reactRules,
-  },
-  overrides: [
-    {
-      // temporary override until everybody removes the React import
-      files: [`**/*.tsx`],
-      rules: {
-        '@typescript-eslint/no-unused-vars': [
-          ERROR,
-          {
-            argsIgnorePattern: '^_',
-            ignoreRestSiblings: true,
-            varsIgnorePattern: '^React$',
-          },
-        ],
+
+    settings: {
+      react: {
+        version: 'detect',
       },
     },
-  ],
-};
 
-module.exports = eslintConfig;
+    rules: reactRules,
+  },
+  {
+    files: ['**/*.tsx'],
+
+    rules: {
+      // temporary override until everybody removes the React import
+      '@typescript-eslint/no-unused-vars': [
+        ERROR,
+        {
+          argsIgnorePattern: '^_',
+          ignoreRestSiblings: true,
+          varsIgnorePattern: '^React$',
+        },
+      ],
+    },
+  },
+];
