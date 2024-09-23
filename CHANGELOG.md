@@ -1,5 +1,43 @@
 # eslint-config-seek
 
+## 14.0.0
+
+### Major Changes
+
+- Some [language options](https://eslint.org/docs/latest/use/configure/language-options) have been restored to defaults: ([#145](https://github.com/seek-oss/eslint-config-seek/pull/145))
+
+  - `sourceType` is now set to the default of `module` (previously `script` in some scenarios).
+  - `ecmaVersion` is now set to the default of `latest` (previously `2022` and `6`)
+  - Babel has been removed
+
+- Replace `eslint-plugin-import` with `eslint-plugin-import-x` ([#145](https://github.com/seek-oss/eslint-config-seek/pull/145))
+
+  To migrate, any references to `eslint-plugin-import` should be replaced with `eslint-plugin-import-x`, and `import/` rules with `import-x/`.
+
+  In addition, it's possible that this may introduce slight behaviour changes.
+
+- Require TypeScript peer dependency >=5.5.4 ([#145](https://github.com/seek-oss/eslint-config-seek/pull/145))
+
+- Migrate to ESLint 9, `@typescript-eslint` 8. ([#145](https://github.com/seek-oss/eslint-config-seek/pull/145))
+
+  These changes may affect your project setup if you are customising your ESLint configuration. See the individual migration guides:
+
+  - https://eslint.org/docs/latest/use/migrate-to-9.0.0
+  - https://typescript-eslint.io/blog/announcing-typescript-eslint-v8
+
+  In addition, through these major upgrades, some lint rules have changed or have been renamed. You will likely need to autofix and/or adjust your code after running ESLint.
+
+  As part of this migration, this project has migrated to Flat ESLint configuration. Read the migration guide: https://eslint.org/docs/latest/use/configure/migration-guide.
+
+### Minor Changes
+
+- Upgrade a number of dependencies. These should have no/minimal impact. ([#145](https://github.com/seek-oss/eslint-config-seek/pull/145))
+
+  - `eslint-plugin-cypress`
+  - `eslint-config-prettier`
+  - `eslint-plugin-jest`
+  - `eslint-plugin-react`, `eslint-plugin-react-hooks`
+
 ## 13.1.1
 
 ### Patch Changes
