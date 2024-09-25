@@ -96,6 +96,9 @@ module.exports = [
   {
     plugins: {
       'import-x': importX,
+      jest: jestPlugin,
+      cypress,
+      '@typescript-eslint': tseslint.plugin,
     },
   },
   importX.flatConfigs.typescript,
@@ -123,7 +126,7 @@ module.exports = [
     rules: baseRules,
   },
   ...[...tseslint.configs.recommended, ...tseslint.configs.stylistic].map(
-    (config) => ({
+    ({ plugins, ...config }) => ({
       ...config,
       files: [`**/*.{${tsExtensions}}`],
     }),
@@ -218,7 +221,6 @@ module.exports = [
       `**/__tests__/**/*.{${allExtensions}}`,
       `**/*.@(spec|test).{${allExtensions}}`,
     ],
-    plugins: { jest: jestPlugin },
     languageOptions: {
       globals: {
         ...globals.jest,
@@ -231,7 +233,6 @@ module.exports = [
   },
   {
     files: [`**/cypress/**/*.{${allExtensions}}`],
-    plugins: { cypress },
     languageOptions: {
       globals: {
         ...cypress.environments.globals.globals,
