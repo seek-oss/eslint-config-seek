@@ -126,9 +126,8 @@ module.exports = [
     rules: baseRules,
   },
   ...[...tseslint.configs.recommended, ...tseslint.configs.stylistic].map(
-    (config) => ({
+    ({ plugins, ...config }) => ({
       ...config,
-      plugins: undefined,
       files: [`**/*.{${tsExtensions}}`],
     }),
   ),
