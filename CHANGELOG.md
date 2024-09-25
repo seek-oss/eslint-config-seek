@@ -1,5 +1,11 @@
 # eslint-config-seek
 
+## 14.0.1
+
+### Patch Changes
+
+- Define plugins without `file` scopes, to allow for improved extensibility ([#149](https://github.com/seek-oss/eslint-config-seek/pull/149))
+
 ## 14.0.0
 
 ### Major Changes
