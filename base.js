@@ -11,7 +11,6 @@ const ERROR = 2;
 const baseRules = {
   // Possible Errors
   'no-console': ERROR,
-  'no-unexpected-multiline': ERROR,
   'block-scoped-var': ERROR,
   curly: [ERROR, 'all'],
   'default-case': ERROR,
