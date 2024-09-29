@@ -11,6 +11,9 @@ const ERROR = 2;
 const baseRules = {
   // Possible Errors
   'no-console': ERROR,
+  // Disable for Prettier compatibility
+  // https://github.com/prettier/eslint-config-prettier/pull/34
+  'no-unexpected-multiline': OFF,
   'block-scoped-var': ERROR,
   curly: [ERROR, 'all'],
   'default-case': ERROR,
