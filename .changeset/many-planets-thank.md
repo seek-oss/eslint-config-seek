@@ -2,4 +2,4 @@
 "eslint-config-seek": patch
 ---
 
-Disable 'no-unexpected-multiline' rule for Prettier compatibility
+Prioritise `eslint-config-prettier` overrides over the base rules
