@@ -92,7 +92,6 @@ const settings = {
 };
 
 module.exports = [
-  eslintConfigPrettier,
   {
     plugins: {
       'import-x': importX,
@@ -125,6 +124,7 @@ module.exports = [
     settings,
     rules: baseRules,
   },
+  eslintConfigPrettier,
   ...[...tseslint.configs.recommended, ...tseslint.configs.stylistic].map(
     ({ plugins, ...config }) => ({
       ...config,
