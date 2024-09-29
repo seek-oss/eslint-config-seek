@@ -11,9 +11,7 @@ const ERROR = 2;
 const baseRules = {
   // Possible Errors
   'no-console': ERROR,
-  // Disable for Prettier compatibility
-  // https://github.com/prettier/eslint-config-prettier/pull/34
-  'no-unexpected-multiline': OFF,
+  'no-unexpected-multiline': ERROR,
   'block-scoped-var': ERROR,
   curly: [ERROR, 'all'],
   'default-case': ERROR,
@@ -94,7 +92,6 @@ const settings = {
 };
 
 module.exports = [
-  eslintConfigPrettier,
   {
     plugins: {
       'import-x': importX,
@@ -127,6 +124,7 @@ module.exports = [
     settings,
     rules: baseRules,
   },
+  eslintConfigPrettier,
   ...[...tseslint.configs.recommended, ...tseslint.configs.stylistic].map(
     ({ plugins, ...config }) => ({
       ...config,
