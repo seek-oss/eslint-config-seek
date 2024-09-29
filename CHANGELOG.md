@@ -1,5 +1,11 @@
 # eslint-config-seek
 
+## 14.0.2
+
+### Patch Changes
+
+- Prioritise `eslint-config-prettier` overrides over the base rules ([#152](https://github.com/seek-oss/eslint-config-seek/pull/152))
+
 ## 14.0.1
 
 ### Patch Changes
