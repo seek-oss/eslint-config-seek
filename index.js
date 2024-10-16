@@ -1,7 +1,6 @@
 const react = require('eslint-plugin-react');
 const reactHooks = require('eslint-plugin-react-hooks');
 const base = require('./base');
-const { fixupPluginRules } = require('@eslint/compat');
 
 const globals = require('globals');
 
@@ -30,7 +29,7 @@ module.exports = [
   {
     plugins: {
       react,
-      'react-hooks': fixupPluginRules(reactHooks),
+      'react-hooks': reactHooks,
     },
 
     languageOptions: {
