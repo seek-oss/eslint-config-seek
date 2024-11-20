@@ -190,6 +190,7 @@ module.exports = [
       // However, there is a pending PR which improves the behaviour of this rule https://github.com/import-js/eslint-plugin-import/pull/2716
       // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-duplicates.md#inline-type-imports
       'import-x/no-duplicates': [ERROR, { 'prefer-inline': true }],
+      'import-x/export': ERROR,
     },
   },
   {
@@ -207,6 +208,7 @@ module.exports = [
         { commonjs: true, amd: true, ignore: ['.svg$', '^file?'] },
       ],
       'import-x/no-duplicates': ERROR,
+      'import-x/export': ERROR,
     },
   },
   {
