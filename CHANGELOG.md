@@ -1,5 +1,14 @@
 # eslint-config-seek
 
+## 14.2.0
+
+### Minor Changes
+
+- Add [`import-x/export`] as a new lint rule. ([#160](https://github.com/seek-oss/eslint-config-seek/pull/160))
+  This fails on repeated exports of names or defaults.
+
+  [`import-x/export`]: https://github.com/un-ts/eslint-plugin-import-x/blob/v4.4.2/docs/rules/export.md#import-xexport
+
 ## 14.1.0
 
 ### Minor Changes
