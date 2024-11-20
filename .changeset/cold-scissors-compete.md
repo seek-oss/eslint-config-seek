@@ -2,7 +2,7 @@
 'eslint-config-seek': minor
 ---
 
-Add [export][docs] as an error.
-This disallows repeated exports of names or defaults.
+Add [`import-x/export`] as a new lint rule. 
+This fails on repeated exports of names or defaults.
 
-[docs]: https://github.com/import-js/eslint-plugin-import/blob/v2.29.1/docs/rules/export.md
+[`import-x/export`]: https://github.com/un-ts/eslint-plugin-import-x/blob/v4.4.2/docs/rules/export.md#import-xexport
