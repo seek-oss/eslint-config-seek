@@ -1,5 +1,11 @@
 # eslint-config-seek
 
+## 14.2.1
+
+### Patch Changes
+
+- deps: eslint-plugin-cypress ^4.0.0 ([#164](https://github.com/seek-oss/eslint-config-seek/pull/164))
+
 ## 14.2.0
 
 ### Minor Changes
