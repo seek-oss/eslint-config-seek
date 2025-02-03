@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-seek",
-  "version": "14.2.1",
+  "version": "14.2.2",
   "description": "ESLint configuration used by SEEK",
   "main": "index.js",
   "files": [

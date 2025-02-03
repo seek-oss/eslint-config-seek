@@ -1,5 +1,11 @@
 # eslint-config-seek
 
+## 14.2.2
+
+### Patch Changes
+
+- Use `eslint-plugin-cypress`'s non-legacy `flat` configuration ([#179](https://github.com/seek-oss/eslint-config-seek/pull/179))
+
 ## 14.2.1
 
 ### Patch Changes
