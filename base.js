@@ -233,12 +233,4 @@ module.exports = [
     ...cypress.configs.recommended,
     files: [`**/cypress/**/*.{${allExtensions}}`],
   },
-  {
-    files: [`**/cypress/**/*.{${allExtensions}}`],
-    languageOptions: {
-      globals: {
-        ...cypress.environments.globals.globals,
-      },
-    },
-  },
 ];
