@@ -1,5 +1,13 @@
 # eslint-config-seek
 
+## 14.3.0
+
+### Minor Changes
+
+- deps: globals ^16.0.0 ([#183](https://github.com/seek-oss/eslint-config-seek/pull/183))
+
+- deps: eslint-config-prettier ^10.0.0 ([#175](https://github.com/seek-oss/eslint-config-seek/pull/175))
+
 ## 14.2.2
 
 ### Patch Changes
