@@ -1,5 +1,19 @@
 # eslint-config-seek
 
+## 14.3.0
+
+### Minor Changes
+
+- deps: globals ^16.0.0 ([#183](https://github.com/seek-oss/eslint-config-seek/pull/183))
+
+- deps: eslint-config-prettier ^10.0.0 ([#175](https://github.com/seek-oss/eslint-config-seek/pull/175))
+
+### Patch Changes
+
+- deps: eslint-plugin-import-x ^4.8.0 ([#188](https://github.com/seek-oss/eslint-config-seek/pull/188))
+
+  This includes a fix to remove duplicate plugin definition that was resulting in an ESLint crash
+
 ## 14.2.2
 
 ### Patch Changes
