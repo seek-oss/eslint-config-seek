@@ -1,5 +1,13 @@
 # eslint-config-seek
 
+## 14.3.1
+
+### Patch Changes
+
+- deps: eslint-plugin-import-x 4.7.0 ([#189](https://github.com/seek-oss/eslint-config-seek/pull/189))
+
+  Later versions of this plugin appear to result in a `Segmentation fault (core dumped)` error, in SEEK’s setup.
+
 ## 14.3.0
 
 ### Minor Changes
