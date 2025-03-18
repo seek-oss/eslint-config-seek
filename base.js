@@ -94,7 +94,7 @@ const settings = {
 module.exports = [
   {
     plugins: {
-      importX,
+      'import-x': importX,
       jest: jestPlugin,
       cypress,
       '@typescript-eslint': tseslint.plugin,
