@@ -1,5 +1,13 @@
 # eslint-config-seek
 
+## 14.4.0
+
+### Minor Changes
+
+- deps: Unpin eslint-plugin-import-x to ^4.9.0 ([#194](https://github.com/seek-oss/eslint-config-seek/pull/194))
+
+  Previous releases of `eslint-config-seek` pinned this dependency to a previous version to work around issues that have been fixed by the package.
+
 ## 14.3.2
 
 ### Patch Changes
