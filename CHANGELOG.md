@@ -1,5 +1,11 @@
 # eslint-config-seek
 
+## 14.4.1
+
+### Patch Changes
+
+- deps: eslint-import-resolver-typescript ^4.0.0 ([#196](https://github.com/seek-oss/eslint-config-seek/pull/196))
+
 ## 14.4.0
 
 ### Minor Changes
