@@ -6,6 +6,7 @@ const eslintConfigPrettier = require('eslint-config-prettier');
 const tseslint = require('typescript-eslint');
 
 const OFF = 0;
+const WARN = 1;
 const ERROR = 2;
 
 const baseRules = {
@@ -155,6 +156,15 @@ module.exports = [
       '@typescript-eslint/ban-ts-comment': OFF,
       '@typescript-eslint/no-explicit-any': OFF,
       '@typescript-eslint/explicit-function-return-type': OFF,
+      '@typescript-eslint/naming-convention': [
+        // TODO - upgrade to ERROR in next major version
+        WARN,
+        {
+          selector: 'typeLike',
+          format: ['PascalCase'],
+          leadingUnderscore: 'allow',
+        },
+      ],
       '@typescript-eslint/no-empty-function': OFF,
       '@typescript-eslint/no-empty-interface': OFF,
       '@typescript-eslint/no-inferrable-types': [
