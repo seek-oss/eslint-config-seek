@@ -14,7 +14,6 @@ const baseRules = {
   'no-console': ERROR,
   'no-unexpected-multiline': ERROR,
   'block-scoped-var': ERROR,
-  curly: [ERROR, 'all'],
   'default-case': ERROR,
   'dot-notation': ERROR,
   eqeqeq: [ERROR, 'always', { null: 'ignore' }],
@@ -82,6 +81,10 @@ const baseRules = {
   'no-return-await': OFF,
 };
 
+const eslintConfigPrettierOverrideRules = {
+  curly: [ERROR, 'all'],
+};
+
 const { js: jsExtensions, ts: tsExtensions } = require('./extensions');
 const allExtensions = [...jsExtensions, ...tsExtensions];
 
@@ -125,6 +128,21 @@ module.exports = [
     rules: baseRules,
   },
   eslintConfigPrettier,
+  {
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
+
+      parserOptions: {
+        requireConfigFile: false,
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+      },
+    },
+    settings,
+    rules: eslintConfigPrettierOverrideRules,
+  },
   ...[...tseslint.configs.recommended, ...tseslint.configs.stylistic].map(
     ({ plugins, ...config }) => ({
       ...config,
