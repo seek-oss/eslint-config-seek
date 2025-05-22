@@ -1,5 +1,25 @@
 # eslint-config-seek
 
+## 14.5.0
+
+### Minor Changes
+
+- Add [`@typescript-eslint/naming-convention`] as a new lint rule. ([#207](https://github.com/seek-oss/eslint-config-seek/pull/207))
+  This warns when not using PascalCase for [`typeLike`] declarations (allowing leading underscores).
+
+  [`@typescript-eslint/naming-convention`]: https://typescript-eslint.io/rules/naming-convention/
+  [`typeLike`]: https://typescript-eslint.io/rules/naming-convention/#group-selectors:~:text=typeLike%20%2D%20matches%20the,types%3A%20none.
+
+### Patch Changes
+
+- deps: eslint-import-resolver-typescript ^4.0.0 ([#196](https://github.com/seek-oss/eslint-config-seek/pull/196))
+
+- Fix rule ordering to re-enable the [`curly`] rule disabled by `eslint-config-prettier` ([#210](https://github.com/seek-oss/eslint-config-seek/pull/210))
+
+  If your code violated this rule, `eslint` should automatically fix it for you.
+
+  [`curly`]: https://eslint.org/docs/latest/rules/curly
+
 ## 14.4.0
 
 ### Minor Changes
