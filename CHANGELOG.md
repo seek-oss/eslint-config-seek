@@ -1,5 +1,13 @@
 # eslint-config-seek
 
+## 14.5.1
+
+### Patch Changes
+
+- Disable [`@typescript-eslint/naming-convention`] rule for enums. ([#212](https://github.com/seek-oss/eslint-config-seek/pull/212))
+
+  [`@typescript-eslint/naming-convention`]: https://typescript-eslint.io/rules/naming-convention/
+
 ## 14.5.0
 
 ### Minor Changes
