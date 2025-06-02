@@ -186,7 +186,7 @@ module.exports = [
         // This selector opts out of the rule for enums
         {
           selector: 'enum',
-          format: [],
+          format: null,
         },
       ],
       '@typescript-eslint/no-empty-function': OFF,
