@@ -182,6 +182,11 @@ module.exports = [
           format: ['PascalCase'],
           leadingUnderscore: 'allow',
         },
+        // 'typeLike' includes enums
+        // This selector opts out of the rule for enums
+        {
+          selector: 'enum',
+        },
       ],
       '@typescript-eslint/no-empty-function': OFF,
       '@typescript-eslint/no-empty-interface': OFF,
