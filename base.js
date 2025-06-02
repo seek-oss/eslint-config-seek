@@ -183,7 +183,7 @@ module.exports = [
           leadingUnderscore: 'allow',
         },
         // 'typeLike' includes enums
-        // This selector ops out of the rule for enums
+        // This selector opts out of the rule for enums
         {
           selector: 'enum',
         },
