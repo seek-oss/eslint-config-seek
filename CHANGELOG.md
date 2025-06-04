@@ -1,5 +1,11 @@
 # eslint-config-seek
 
+## 14.5.2
+
+### Patch Changes
+
+- Fix lint issue in [`@typescript-eslint/naming-convention`] rule. ([#214](https://github.com/seek-oss/eslint-config-seek/pull/214))
+
 ## 14.5.1
 
 ### Patch Changes
