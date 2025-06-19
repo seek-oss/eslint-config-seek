@@ -1,7 +1,7 @@
 const importX = require('eslint-plugin-import-x');
 const globals = require('globals');
 const jestPlugin = require('eslint-plugin-jest');
-const cypress = require('eslint-plugin-cypress/flat');
+const cypress = require('eslint-plugin-cypress');
 const eslintConfigPrettier = require('eslint-config-prettier');
 const tseslint = require('typescript-eslint');
 
