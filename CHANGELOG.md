@@ -1,5 +1,13 @@
 # eslint-config-seek
 
+## 14.5.3
+
+### Patch Changes
+
+- deps: eslint-plugin-jest ^29.0.0 ([#221](https://github.com/seek-oss/eslint-config-seek/pull/221))
+
+- Update `eslint-plugin-cypress` to v5 ([#217](https://github.com/seek-oss/eslint-config-seek/pull/217))
+
 ## 14.5.2
 
 ### Patch Changes
