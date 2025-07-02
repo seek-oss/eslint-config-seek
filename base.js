@@ -144,14 +144,12 @@ module.exports = [
     settings,
     rules: eslintConfigPrettierOverrideRules,
   },
-  ...[
-    ...tseslint.configs.recommended,
-    ...tseslint.configs.stylistic,
-    ...importZod.configs.recommended,
-  ].map(({ plugins, ...config }) => ({
-    ...config,
-    files: [`**/*.{${tsExtensions}}`],
-  })),
+  ...[...tseslint.configs.recommended, ...tseslint.configs.stylistic].map(
+    ({ plugins, ...config }) => ({
+      ...config,
+      files: [`**/*.{${tsExtensions}}`],
+    }),
+  ),
   {
     files: [`**/*.{${tsExtensions}}`],
 
@@ -268,5 +266,9 @@ module.exports = [
   {
     ...cypress.configs.recommended,
     files: [`**/cypress/**/*.{${allExtensions}}`],
+  },
+  {
+    ...importZod.configs.recommended,
+    files: [`**/*.{${tsExtensions}}`],
   },
 ];
