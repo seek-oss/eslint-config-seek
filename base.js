@@ -4,6 +4,7 @@ const jestPlugin = require('eslint-plugin-jest');
 const cypress = require('eslint-plugin-cypress');
 const eslintConfigPrettier = require('eslint-config-prettier');
 const tseslint = require('typescript-eslint');
+const importZod = require('eslint-plugin-import-zod');
 
 const OFF = 0;
 const WARN = 1;
@@ -143,12 +144,14 @@ module.exports = [
     settings,
     rules: eslintConfigPrettierOverrideRules,
   },
-  ...[...tseslint.configs.recommended, ...tseslint.configs.stylistic].map(
-    ({ plugins, ...config }) => ({
-      ...config,
-      files: [`**/*.{${tsExtensions}}`],
-    }),
-  ),
+  ...[
+    ...tseslint.configs.recommended,
+    ...tseslint.configs.stylistic,
+    ...importZod.configs.recommended,
+  ].map(({ plugins, ...config }) => ({
+    ...config,
+    files: [`**/*.{${tsExtensions}}`],
+  })),
   {
     files: [`**/*.{${tsExtensions}}`],
 
