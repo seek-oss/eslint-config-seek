@@ -63,6 +63,29 @@ const baseRules = {
   'no-path-concat': ERROR,
   'no-process-exit': ERROR,
   'no-restricted-modules': ERROR,
+  'no-restricted-syntax': [
+    ERROR,
+    {
+      selector: 'MethodDefinition[kind = "get"]',
+      message:
+        'Custom getters can cause confusion, particularly if they throw errors. Remove the `get` syntax to specify a regular method instead.',
+    },
+    {
+      selector: 'MethodDefinition[kind = "set"]',
+      message:
+        'Custom setters can cause confusion, particularly if they throw errors. Remove the `set` syntax to specify a regular method instead.',
+    },
+    {
+      selector: 'Property[kind = "get"]',
+      message:
+        'Custom getters can cause confusion, particularly if they throw errors. Remove the `get` syntax to specify a regular property instead.',
+    },
+    {
+      selector: 'Property[kind = "set"]',
+      message:
+        'Custom setters can cause confusion, particularly if they throw errors. Remove the `set` syntax to specify a regular property instead.',
+    },
+  ],
   'no-sync': ERROR,
   'linebreak-style': [ERROR, 'unix'],
   'new-cap': ERROR,
