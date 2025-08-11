@@ -14,3 +14,17 @@ const obj = {
   },
 };
 ```
+
+A custom getter may be occasionally prescribed as the recommended approach to achieve desired behaviour. For example, this syntax can define a [recursive object in Zod](https://zod.dev/v4#recursive-objects). In these rare scenarios, add an inline ignore and ensure that you do not throw an error within the getter.
+
+```typescript
+import * as z from 'zod';
+
+const Category = z.object({
+  name: z.string(),
+  // eslint-disable-next-line no-restricted-syntax -- Zod recursive type
+  get subcategories() {
+    return z.array(Category);
+  },
+});
+```
