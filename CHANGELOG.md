@@ -1,5 +1,11 @@
 # eslint-config-seek
 
+## 14.6.1
+
+### Patch Changes
+
+- Publish with provenance ([#241](https://github.com/seek-oss/eslint-config-seek/pull/241))
+
 ## 14.6.0
 
 ### Minor Changes
