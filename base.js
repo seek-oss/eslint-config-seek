@@ -290,8 +290,8 @@ module.exports = [
     ...cypress.configs.recommended,
     files: [`**/cypress/**/*.{${allExtensions}}`],
   },
-  {
-    ...importZod.configs.recommended,
+  ...importZod.configs.recommended.map((config) => ({
+    ...config,
     files: [`**/*.{${tsExtensions}}`],
-  },
+  })),
 ];
