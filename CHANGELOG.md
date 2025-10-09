@@ -1,5 +1,36 @@
 # eslint-config-seek
 
+## 14.6.0
+
+### Minor Changes
+
+- Error on custom getters and setters ([#227](https://github.com/seek-oss/eslint-config-seek/pull/227))
+
+  The [`no-restricted-syntax`](https://eslint.org/docs/latest/rules/no-restricted-syntax) rule is now preconfigured to ban custom getters and setters. Engineers typically expect property access to be a safer operation than method or function invocation. Throwing an error from a getter can cause confusion and unhandled promise rejections, which can lead to a crash on the server side if [not appropriately configured](https://nodejs.org/api/process.html#event-unhandledrejection). See the PR for more information.
+
+  ```diff
+  const obj = {
+  - get prop() {
+  + prop() {
+      throw new Error('Badness!');
+    },
+  };
+  ```
+
+  A custom getter may be occasionally prescribed as the recommended approach to achieve desired behaviour. For example, this syntax can define a [recursive object in Zod](https://zod.dev/v4#recursive-objects). In these rare scenarios, add an inline ignore and ensure that you do not throw an error within the getter.
+
+  ```typescript
+  import * as z from 'zod';
+
+  const Category = z.object({
+    name: z.string(),
+    // eslint-disable-next-line no-restricted-syntax -- Zod recursive type
+    get subcategories() {
+      return z.array(Category);
+    },
+  });
+  ```
+
 ## 14.5.3
 
 ### Patch Changes
@@ -126,7 +157,6 @@
 ### Major Changes
 
 - Some [language options](https://eslint.org/docs/latest/use/configure/language-options) have been restored to defaults: ([#145](https://github.com/seek-oss/eslint-config-seek/pull/145))
-
   - `sourceType` is now set to the default of `module` (previously `script` in some scenarios).
   - `ecmaVersion` is now set to the default of `latest` (previously `2022` and `6`)
   - Babel has been removed
@@ -142,7 +172,6 @@
 - Migrate to ESLint 9, `@typescript-eslint` 8. ([#145](https://github.com/seek-oss/eslint-config-seek/pull/145))
 
   These changes may affect your project setup if you are customising your ESLint configuration. See the individual migration guides:
-
   - https://eslint.org/docs/latest/use/migrate-to-9.0.0
   - https://typescript-eslint.io/blog/announcing-typescript-eslint-v8
 
@@ -153,7 +182,6 @@
 ### Minor Changes
 
 - Upgrade a number of dependencies. These should have no/minimal impact. ([#145](https://github.com/seek-oss/eslint-config-seek/pull/145))
-
   - `eslint-plugin-cypress`
   - `eslint-config-prettier`
   - `eslint-plugin-jest`
@@ -486,7 +514,6 @@
 - Support ESLint 8.x ([#73](https://github.com/seek-oss/eslint-config-seek/pull/73))
 
   We've upgraded the parsers and plugins bundled in `eslint-config-seek` for ESLint 8.x compatibility. Some linting rules have changed and may require manual triage. In particular, we've applied the following major upgrades:
-
   - [TypeScript ESLint v5](https://github.com/typescript-eslint/typescript-eslint/releases/tag/v5.0.0)
 
     This includes changes to the recommended rule set.
