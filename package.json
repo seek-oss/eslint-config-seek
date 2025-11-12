@@ -3,6 +3,7 @@
   "version": "14.6.0",
   "description": "ESLint configuration used by SEEK",
   "main": "index.js",
+  "types": "index.d.ts",
   "files": [
     "index.js",
     "index.d.ts",
