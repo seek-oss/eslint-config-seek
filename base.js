@@ -4,6 +4,7 @@ const jestPlugin = require('eslint-plugin-jest');
 const cypress = require('eslint-plugin-cypress');
 const eslintConfigPrettier = require('eslint-config-prettier');
 const tseslint = require('typescript-eslint');
+const importZod = require('eslint-plugin-import-zod');
 
 const OFF = 0;
 const WARN = 1;
@@ -289,4 +290,8 @@ module.exports = [
     ...cypress.configs.recommended,
     files: [`**/cypress/**/*.{${allExtensions}}`],
   },
+  ...importZod.configs.recommended.map((config) => ({
+    ...config,
+    files: [`**/*.{${tsExtensions}}`],
+  })),
 ];
