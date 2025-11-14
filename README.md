@@ -3,7 +3,7 @@
 
 # eslint-config-seek
 
-[SEEK](https://github.com/seek-oss/)'s shareable ESLint configuration.
+[SEEK](https://github.com/seek-oss/)’s shareable ESLint configuration.
 
 ## Usage in sku and skuba Projects
 
