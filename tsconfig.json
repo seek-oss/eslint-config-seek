@@ -1,12 +1,11 @@
 {
   "extends": "@tsconfig/node22/tsconfig.json",
   "compilerOptions": {
-    "module": "node18",
-    "allowJs": true,
     "noEmit": true,
     // Output incremental build info to node_modules
     "outDir": "node_modules/.cache/typescript",
-    "incremental": true
+    "incremental": true,
+    "allowImportingTsExtensions": true
   },
-  "include": ["*.d.ts"]
+  "include": ["src", "eslint.config.ts", "tsdown.config.ts"]
 }
