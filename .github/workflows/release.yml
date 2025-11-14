@@ -36,6 +36,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Build
+        run: pnpm build
+
       # Ensure npm 11.5.1 or later is installed
       - name: Install latest npm
         run: npm install -g npm@latest
@@ -43,8 +46,8 @@ jobs:
       - name: Release
         uses: changesets/action@v1
         with:
-          publish: pnpm release
-          version: pnpm changeset-version
+          version: pnpm run version
+          publish: pnpm run release
         env:
           GITHUB_TOKEN: ${{ secrets.SEEK_OSS_CI_GITHUB_TOKEN }}
 
@@ -75,6 +78,9 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm build
 
       # Ensure npm 11.5.1 or later is installed
       - name: Install latest npm
