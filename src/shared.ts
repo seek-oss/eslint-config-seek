@@ -122,7 +122,7 @@ const settings = {
 };
 
 export default defineConfig([
-  // @ts-expect-error - type is incompatible with `defineConfig`
+  // @ts-expect-error - This works but the types are incompatible. See https://github.com/un-ts/eslint-plugin-import-x/issues/421.
   importX.flatConfigs.typescript,
   {
     rules: {
@@ -260,7 +260,7 @@ export default defineConfig([
     },
     files: [`**/cypress/**/*.{${allExtensions}}`],
   },
-  // @ts-expect-error - type is incompatible with `defineConfig`
+  // @ts-expect-error - `eslint-plugin-import-zod` uses TSESLint helpers, which seems to be incompatible with `defineConfig`
   ...importZod.configs.recommended.map((config) => ({
     ...config,
     files: [`**/*.{${tsExtensions}}`],
