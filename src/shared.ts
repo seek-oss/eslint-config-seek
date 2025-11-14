@@ -260,7 +260,6 @@ export default defineConfig([
     },
     files: [`**/cypress/**/*.{${allExtensions}}`],
   },
-  // @ts-expect-error - `eslint-plugin-import-zod` uses TSESLint helpers, which seems to be incompatible with `defineConfig`
   ...importZod.configs.recommended.map((config) => ({
     ...config,
     files: [`**/*.{${tsExtensions}}`],
