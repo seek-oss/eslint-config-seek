@@ -1,5 +1,19 @@
 # eslint-config-seek
 
+## 14.7.0
+
+### Minor Changes
+
+- Add types for root, `/base` and `/extensions` entrypoints ([#247](https://github.com/seek-oss/eslint-config-seek/pull/247))
+
+- Add `eslint-plugin-import-zod` to re-write Zod imports ([#224](https://github.com/seek-oss/eslint-config-seek/pull/224))
+
+  This plugin adds rules for rewriting Zod imports such as `import { z } from "zod";` to `import * as z from 'zod';` in order to reduce bundle sizes when using a bundler.
+
+### Patch Changes
+
+- Publish with provenance ([#241](https://github.com/seek-oss/eslint-config-seek/pull/241))
+
 ## 14.6.0
 
 ### Minor Changes
