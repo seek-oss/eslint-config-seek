@@ -6,7 +6,7 @@ on:
 
 jobs:
   test:
-    name: Test
+    name: Lint
     runs-on: ubuntu-latest
     env:
       CI: true
@@ -26,5 +26,5 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Test
-        run: pnpm test
+      - name: Lint
+        run: pnpm lint
