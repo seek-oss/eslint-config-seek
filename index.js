@@ -25,11 +25,11 @@ const reactRules = {
 module.exports = [
   react.configs.flat.recommended,
   react.configs.flat['jsx-runtime'],
+  reactHooks.configs.flat.recommended,
   ...base,
   {
     plugins: {
       react,
-      'react-hooks': reactHooks,
     },
 
     languageOptions: {
