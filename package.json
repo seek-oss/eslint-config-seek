@@ -1,17 +1,8 @@
 {
   "name": "eslint-config-seek",
   "version": "14.7.0",
+  "type": "module",
   "description": "ESLint configuration used by SEEK",
-  "main": "index.js",
-  "types": "index.d.ts",
-  "files": [
-    "index.js",
-    "index.d.ts",
-    "base.js",
-    "base.d.ts",
-    "extensions.js",
-    "extensions.d.ts"
-  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/seek-oss/eslint-config-seek.git"
@@ -21,18 +12,39 @@
   "bugs": {
     "url": "https://github.com/seek-oss/eslint-config-seek/issues"
   },
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.cts",
+  "exports": {
+    ".": "./dist/index.cjs",
+    "./base": "./dist/base.cjs",
+    "./extensions": "./dist/extensions.cjs",
+    "./vitest": "./dist/vitest/index.cjs",
+    "./vitest/base": "./dist/vitest/base.cjs",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "release": "changeset publish",
-    "test": "eslint --config index.js . && eslint --config base.js .",
-    "changeset-version": "changeset version && prettier --write ."
+    "lint": "pnpm run '/^lint:.*/'",
+    "format": "pnpm run '/^format:.*/'",
+    "format:eslint": "eslint --fix .",
+    "format:prettier": "prettier --write .",
+    "lint:eslint": "eslint .",
+    "lint:tsc": "tsc --noEmit",
+    "build": "tsdown",
+    "lint:prettier": "prettier --check .",
+    "version": "changeset version && prettier --write .",
+    "release": "changeset publish"
   },
   "homepage": "https://github.com/seek-oss/eslint-config-seek#readme",
   "dependencies": {
+    "@vitest/eslint-plugin": "^1.5.2",
     "eslint-config-prettier": "^10.0.0",
     "eslint-import-resolver-typescript": "^4.0.0",
     "eslint-plugin-cypress": "^5.0.0",
     "eslint-plugin-import-x": "^4.9.0",
-    "eslint-plugin-import-zod": "^1.2.0",
+    "eslint-plugin-import-zod": "^1.2.1",
     "eslint-plugin-jest": "^29.0.0",
     "eslint-plugin-react": "^7.35.0",
     "eslint-plugin-react-hooks": "^5.0.0",
@@ -43,16 +55,18 @@
     "@changesets/cli": "^2.27.7",
     "@changesets/get-github-info": "^0.6.0",
     "@tsconfig/node22": "^22.0.2",
-    "eslint": "^9.8.0",
+    "eslint": "^9.22.0",
+    "jiti": "^2.6.1",
     "prettier": "^3.3.3",
+    "tsdown": "^0.16.3",
     "typescript": "~5.9.0"
   },
   "peerDependencies": {
-    "eslint": ">=9.9.1",
+    "eslint": ">=9.22.0",
     "typescript": ">=5.5.4"
   },
   "engines": {
-    "node": ">=18.18.0"
+    "node": ">=22.21.1"
   },
   "packageManager": "pnpm@10.24.0"
 }

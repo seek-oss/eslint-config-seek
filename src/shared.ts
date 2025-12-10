@@ -1,16 +1,19 @@
-const importX = require('eslint-plugin-import-x');
-const globals = require('globals');
-const jestPlugin = require('eslint-plugin-jest');
-const cypress = require('eslint-plugin-cypress');
-const eslintConfigPrettier = require('eslint-config-prettier');
-const tseslint = require('typescript-eslint');
-const importZod = require('eslint-plugin-import-zod');
+import importX from 'eslint-plugin-import-x';
+
+import globals from 'globals';
+import cypress from 'eslint-plugin-cypress';
+import eslintConfigPrettier from 'eslint-config-prettier';
+import tseslint from 'typescript-eslint';
+import { js as jsExtensions, ts as tsExtensions } from './extensions.ts';
+import { defineConfig, type Config } from 'eslint/config';
+import importZod from 'eslint-plugin-import-zod';
 
 const OFF = 0;
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const WARN = 1;
 const ERROR = 2;
 
-const baseRules = {
+const baseRules: Config['rules'] = {
   // Possible Errors
   'no-console': ERROR,
   'no-unexpected-multiline': ERROR,
@@ -105,11 +108,10 @@ const baseRules = {
   'no-return-await': OFF,
 };
 
-const eslintConfigPrettierOverrideRules = {
+const eslintConfigPrettierOverrideRules: Config['rules'] = {
   curly: [ERROR, 'all'],
 };
 
-const { js: jsExtensions, ts: tsExtensions } = require('./extensions');
 const allExtensions = [...jsExtensions, ...tsExtensions];
 
 const settings = {
@@ -119,29 +121,19 @@ const settings = {
   },
 };
 
-module.exports = [
-  {
-    plugins: {
-      jest: jestPlugin,
-      cypress,
-      '@typescript-eslint': tseslint.plugin,
-    },
-  },
+export default defineConfig([
+  // @ts-expect-error - This works but the types are incompatible. See https://github.com/un-ts/eslint-plugin-import-x/issues/421.
   importX.flatConfigs.typescript,
   {
-    rules: importX.flatConfigs.errors.rules,
-    files: [`**/*.{${jsExtensions}}`],
-  },
-  {
-    rules: importX.flatConfigs.warnings.rules,
+    rules: {
+      ...importX.flatConfigs.errors.rules,
+      ...importX.flatConfigs.warnings.rules,
+    },
     files: [`**/*.{${jsExtensions}}`],
   },
   {
     languageOptions: {
-      globals: {
-        ...globals.node,
-      },
-
+      globals: globals.node,
       parserOptions: {
         requireConfigFile: false,
         ecmaVersion: 'latest',
@@ -151,13 +143,11 @@ module.exports = [
     settings,
     rules: baseRules,
   },
-  eslintConfigPrettier,
   {
+    name: 'prettier',
+    extends: [eslintConfigPrettier],
     languageOptions: {
-      globals: {
-        ...globals.node,
-      },
-
+      globals: globals.node,
       parserOptions: {
         requireConfigFile: false,
         ecmaVersion: 'latest',
@@ -167,14 +157,11 @@ module.exports = [
     settings,
     rules: eslintConfigPrettierOverrideRules,
   },
-  ...[...tseslint.configs.recommended, ...tseslint.configs.stylistic].map(
-    ({ plugins, ...config }) => ({
-      ...config,
-      files: [`**/*.{${tsExtensions}}`],
-    }),
-  ),
   {
+    name: 'typescript',
+    extends: [tseslint.configs.recommended, tseslint.configs.stylistic],
     files: [`**/*.{${tsExtensions}}`],
+    plugins: { '@typescript-eslint': tseslint.plugin },
 
     languageOptions: {
       parser: tseslint.parser,
@@ -199,8 +186,7 @@ module.exports = [
       '@typescript-eslint/no-explicit-any': OFF,
       '@typescript-eslint/explicit-function-return-type': OFF,
       '@typescript-eslint/naming-convention': [
-        // TODO - upgrade to ERROR in next major version
-        WARN,
+        ERROR,
         {
           selector: 'typeLike',
           format: ['PascalCase'],
@@ -251,10 +237,8 @@ module.exports = [
     },
   },
   {
+    name: 'javascript',
     files: [`**/*.{${jsExtensions}}`],
-    languageOptions: {
-      globals: {},
-    },
     settings,
     rules: {
       'no-undef': ERROR,
@@ -269,29 +253,15 @@ module.exports = [
     },
   },
   {
-    ...jestPlugin.configs['flat/recommended'],
-    files: [
-      `**/__tests__/**/*.{${allExtensions}}`,
-      `**/*.@(spec|test).{${allExtensions}}`,
-    ],
-  },
-  {
-    files: [
-      `**/__tests__/**/*.{${allExtensions}}`,
-      `**/*.@(spec|test).{${allExtensions}}`,
-    ],
-    languageOptions: {
-      globals: {
-        ...globals.jest,
-      },
+    name: 'cypress',
+    extends: [cypress.configs.recommended],
+    plugins: {
+      cypress,
     },
-  },
-  {
-    ...cypress.configs.recommended,
     files: [`**/cypress/**/*.{${allExtensions}}`],
   },
   ...importZod.configs.recommended.map((config) => ({
     ...config,
     files: [`**/*.{${tsExtensions}}`],
   })),
-];
+]);
