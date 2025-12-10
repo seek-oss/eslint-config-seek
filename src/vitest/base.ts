@@ -17,5 +17,8 @@ export default defineConfig([
       `**/*.@(spec|test).{${allExtensions}}`,
     ],
     extends: [vitest.configs.recommended],
+    rules: {
+      'vitest/no-focused-tests': ['error', { fixable: false }],
+    },
   },
 ]);
