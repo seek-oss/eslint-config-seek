@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-seek",
-  "version": "14.7.0",
+  "version": "15.0.0",
   "type": "module",
   "description": "ESLint configuration used by SEEK",
   "repository": {

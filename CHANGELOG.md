@@ -1,5 +1,54 @@
 # eslint-config-seek
 
+## 15.0.0
+
+### Major Changes
+
+- Configure explicit exports for all entrypoints ([#248](https://github.com/seek-oss/eslint-config-seek/pull/248))
+
+  This package now configures explicit [exports] in its `package.json` file for all entrypoints. Consumers previously importing from `eslint-config-seek/base.js` or `eslint-config-seek/extensions.js` should update their import statements to use the new explicit entrypoints:
+
+  ```diff
+  - import 'eslint-config-seek/base.js';
+  + import 'eslint-config-seek/base';
+
+  - import 'eslint-config-seek/extensions.js';
+  + import 'eslint-config-seek/extensions';
+  ```
+
+  [exports]: https://nodejs.org/api/packages.html#conditional-exports
+
+- Upgrade `@typescript-eslint/naming-convention` rule from `warn` to `error` ([#248](https://github.com/seek-oss/eslint-config-seek/pull/248))
+
+  This rule enforces using PascalCase for `typeLike` declarations excluding enums (allowing leading underscores).
+
+  [`typeLike`]: "https://typescript-eslint.io/rules/naming-convention/#group-selectors:~:text=typeLike%20-%20matches
+
+- Update `eslint` peer depenedency to `^9.22.0` ([#248](https://github.com/seek-oss/eslint-config-seek/pull/248))
+
+- Remove `no-unused-vars` rule exception for `React` namespace import ([#248](https://github.com/seek-oss/eslint-config-seek/pull/248))
+
+  The `no-unused-vars` rule exception for the `React` namespace import has been removed. This means that if you import the entire React namespace but do not use it in your code, ESLint will now flag it as an unused variable.
+
+  This exception was originally added to accommodate older versions of React (prior to v17) where JSX syntax required the React namespace to be in scope. However, with the introduction of the new JSX Transform in React 17, this was no longer necessary. A temporary exception was made to ease the transition, but it has now been removed to encourage cleaner code.
+
+  **MIGRATION GUIDE**:
+
+  ```diff
+  -import React from 'react';
+
+  -import React, { useState } from 'react';
+  +import { useState } from 'react';
+  ```
+
+### Minor Changes
+
+- Expose 2 Vitest-specific entrypoints: ([#248](https://github.com/seek-oss/eslint-config-seek/pull/248))
+  - `eslint-config-seek/vitest`: for general Vitest projects
+  - `eslint-config-seek/vitest/base`: for Vitest projects not using React
+
+  These are equivalent to the existing `eslint-config-seek` and `eslint-config-seek/base` entrypoints, but with Vitest-specific rules and settings applied instead of Jest-specific ones.
+
 ## 14.7.0
 
 ### Minor Changes
