@@ -1,2 +1,2 @@
-export const js: string[] = ['js', 'cjs', 'mjs', 'jsx'];
-export const ts: string[] = ['ts', 'cts', 'mts', 'tsx'];
+export const js = ['js', 'cjs', 'mjs', 'jsx'] as const satisfies string[];
+export const ts = ['ts', 'cts', 'mts', 'tsx'] as const satisfies string[];
