@@ -39,7 +39,7 @@
   },
   "homepage": "https://github.com/seek-oss/eslint-config-seek#readme",
   "dependencies": {
-    "@vitest/eslint-plugin": "^1.4.2",
+    "@vitest/eslint-plugin": "^1.5.2",
     "eslint-config-prettier": "^10.0.0",
     "eslint-import-resolver-typescript": "^4.0.0",
     "eslint-plugin-cypress": "^5.0.0",
