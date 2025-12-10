@@ -158,10 +158,12 @@ export default defineConfig([
     rules: eslintConfigPrettierOverrideRules,
   },
   {
+    plugins: { '@typescript-eslint': tseslint.plugin },
+  },
+  {
     name: 'typescript',
     extends: [tseslint.configs.recommended, tseslint.configs.stylistic],
     files: [`**/*.{${tsExtensions}}`],
-    plugins: { '@typescript-eslint': tseslint.plugin },
 
     languageOptions: {
       parser: tseslint.parser,
@@ -253,11 +255,11 @@ export default defineConfig([
     },
   },
   {
+    plugins: { cypress },
+  },
+  {
     name: 'cypress',
     extends: [cypress.configs.recommended],
-    plugins: {
-      cypress,
-    },
     files: [`**/cypress/**/*.{${allExtensions}}`],
   },
   ...importZod.configs.recommended.map((config) => ({
