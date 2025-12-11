@@ -1,5 +1,11 @@
 # eslint-config-seek
 
+## 15.0.1
+
+### Patch Changes
+
+- Fixes a bug that prevented configuring custom rules that rely on plugins ([#254](https://github.com/seek-oss/eslint-config-seek/pull/254))
+
 ## 15.0.0
 
 ### Major Changes
