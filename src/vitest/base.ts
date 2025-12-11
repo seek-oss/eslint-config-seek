@@ -10,6 +10,7 @@ export default defineConfig([
     name: 'seek/vitest/base',
     extends: [shared],
   },
+  { plugins: { vitest } },
   {
     name: 'vitest',
     files: [

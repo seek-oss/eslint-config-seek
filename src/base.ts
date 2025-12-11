@@ -10,6 +10,7 @@ export default defineConfig([
     name: 'seek/base',
     extends: [shared],
   },
+  { plugins: { jest: jestPlugin } },
   {
     name: 'jest',
     files: [
