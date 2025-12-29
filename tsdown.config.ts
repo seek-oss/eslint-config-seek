@@ -11,4 +11,7 @@ export default defineConfig({
   format: ['cjs'],
   dts: true,
   exports: true,
+  // Shipping CJS-only emits a warning, which becomes an error in CI.
+  // Temporarily disabling this until we decided to support ESM.
+  failOnWarn: false,
 });
