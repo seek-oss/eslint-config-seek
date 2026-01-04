@@ -1,5 +1,11 @@
 # eslint-config-seek
 
+## 15.0.2
+
+### Patch Changes
+
+- deps: globals ^17.0.0 ([#262](https://github.com/seek-oss/eslint-config-seek/pull/262))
+
 ## 15.0.1
 
 ### Patch Changes
