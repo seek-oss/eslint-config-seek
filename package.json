@@ -31,6 +31,11 @@
     "format:eslint": "eslint --fix .",
     "format:prettier": "prettier --write .",
     "lint:eslint": "eslint .",
+    "test": "pnpm run '/^test:.*/'",
+    "test:base": "eslint --config dist/base.cjs src/index.ts",
+    "test:react": "eslint --config dist/index.cjs src/index.ts",
+    "test:vitest": "eslint --config dist/vitest/index.cjs src/index.ts",
+    "test:vitest-base": "eslint --config dist/vitest/base.cjs src/index.ts",
     "lint:tsc": "tsc --noEmit",
     "build": "tsdown",
     "lint:prettier": "prettier --check .",
@@ -48,7 +53,7 @@
     "eslint-plugin-jest": "^29.0.0",
     "eslint-plugin-react": "^7.35.0",
     "eslint-plugin-react-hooks": "^5.0.0",
-    "globals": "^16.0.0",
+    "globals": "^17.0.0",
     "typescript-eslint": "^8.6.0"
   },
   "devDependencies": {
