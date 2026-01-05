@@ -1,5 +1,11 @@
 # eslint-config-seek
 
+## 15.0.3
+
+### Patch Changes
+
+- Revert `globals` dependency back to `^16.0.0` ([#264](https://github.com/seek-oss/eslint-config-seek/pull/264))
+
 ## 15.0.2
 
 ### Patch Changes
