@@ -1,5 +1,11 @@
 # eslint-config-seek
 
+## 15.0.4
+
+### Patch Changes
+
+- Fix a bundling issue causing `eslint` to throw an error. Update `globals` dep to `^17.0.0`. ([#267](https://github.com/seek-oss/eslint-config-seek/pull/267))
+
 ## 15.0.3
 
 ### Patch Changes
