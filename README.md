@@ -35,12 +35,12 @@ export { default } from 'eslint-config-seek';
 
 This package provides multiple configuration entrypoints to support different projects.
 
-| Entrypoint                       | Project type    |
-| -------------------------------- | --------------- |
-| `eslint-config-seek`             | React + Jest    |
-| `eslint-config-seek/base`        | No react + Jest |
-| `eslint-config-seek/vitest`      | React + Vitest  |
-| `eslint-config-seek/vitest/base` | No react + Jest |
+| Entrypoint                       | Project type      |
+| -------------------------------- | ----------------- |
+| `eslint-config-seek`             | React + Jest      |
+| `eslint-config-seek/base`        | No react + Jest   |
+| `eslint-config-seek/vitest`      | React + Vitest    |
+| `eslint-config-seek/vitest/base` | No react + Vitest |
 
 You can extend your configuration from `eslint-config-seek` by editing the `eslint.config.js` file.
 Learn more about [configuring ESLint](https://eslint.org/docs/latest/use/configure/) on the ESLint website.
