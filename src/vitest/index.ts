@@ -1,8 +1,8 @@
 import { defineConfig } from 'eslint/config';
-import base from './base.ts';
+import { baseConfig } from './baseConfig.ts';
 import react from '../react.ts';
 
 export default defineConfig({
   name: 'seek/vitest/react',
-  extends: [base, react],
+  extends: [baseConfig, react],
 });
