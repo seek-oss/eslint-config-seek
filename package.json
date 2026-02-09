@@ -63,7 +63,7 @@
     "eslint": "^9.22.0",
     "jiti": "^2.6.1",
     "prettier": "^3.3.3",
-    "tsdown": "^0.18.0",
+    "tsdown": "^0.20.0",
     "typescript": "~5.9.0"
   },
   "peerDependencies": {
