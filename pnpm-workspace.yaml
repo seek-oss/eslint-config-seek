@@ -1,0 +1,8 @@
+ignorePatchFailures: false
+packageManagerStrictVersion: true
+minimumReleaseAge: 4320 # 3 days
+minimumReleaseAgeExclude:
+  - eslint-config-seek
+  - eslint
+  - prettier
+  - typescript
