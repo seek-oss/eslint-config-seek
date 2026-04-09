@@ -122,7 +122,6 @@ const settings = {
 };
 
 export default defineConfig([
-  // @ts-expect-error - This works but the types are incompatible. See https://github.com/un-ts/eslint-plugin-import-x/issues/421.
   importX.flatConfigs.typescript,
   {
     rules: {
