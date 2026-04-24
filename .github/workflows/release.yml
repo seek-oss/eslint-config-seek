@@ -39,10 +39,6 @@ jobs:
       - name: Build
         run: pnpm build
 
-      # Ensure npm 11.5.1 or later is installed
-      - name: Install latest npm
-        run: npm install -g npm@latest
-
       - name: Release
         uses: changesets/action@v1
         with:
