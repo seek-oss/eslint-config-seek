@@ -1,5 +1,11 @@
 # eslint-config-seek
 
+## 15.0.5
+
+### Patch Changes
+
+- Update `eslint-plugin-cypress` dependency to `^6.0.0` ([#276](https://github.com/seek-oss/eslint-config-seek/pull/276))
+
 ## 15.0.4
 
 ### Patch Changes
