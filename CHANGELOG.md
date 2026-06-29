@@ -1,5 +1,11 @@
 # eslint-config-seek
 
+## 15.0.6
+
+### Patch Changes
+
+- Update `@vitest/eslint-plugin` dependency to `^1.6.20` ([#289](https://github.com/seek-oss/eslint-config-seek/pull/289))
+
 ## 15.0.5
 
 ### Patch Changes
