@@ -1,8 +1,11 @@
-ignorePatchFailures: false
-packageManagerStrictVersion: true
 minimumReleaseAge: 4320 # 3 days
 minimumReleaseAgeExclude:
   - eslint-config-seek
   - eslint
   - prettier
   - typescript
+
+blockExoticSubdeps: true
+trustPolicy: no-downgrade
+trustPolicyExclude:
+  - 'semver@6.3.1'

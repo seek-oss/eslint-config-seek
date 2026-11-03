@@ -60,11 +60,12 @@
     "@changesets/cli": "^2.27.7",
     "@changesets/get-github-info": "^0.8.0",
     "@tsconfig/node22": "^22.0.2",
+    "@types/node": "^24.19.2",
     "eslint": "^9.22.0",
     "jiti": "^2.6.1",
     "prettier": "^3.3.3",
     "tsdown": "^0.23.0",
-    "typescript": "~5.9.0"
+    "typescript": "~6.0.3"
   },
   "peerDependencies": {
     "eslint": ">=9.22.0",
@@ -73,5 +74,5 @@
   "engines": {
     "node": ">=22.21.1"
   },
-  "packageManager": "pnpm@10.33.2"
+  "packageManager": "pnpm@12.17.0"
 }

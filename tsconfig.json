@@ -5,7 +5,8 @@
     // Output incremental build info to node_modules
     "outDir": "node_modules/.cache/typescript",
     "incremental": true,
-    "allowImportingTsExtensions": true
+    "allowImportingTsExtensions": true,
+    "types": ["node"]
   },
   "include": ["src", "eslint.config.ts", "tsdown.config.ts"]
 }
