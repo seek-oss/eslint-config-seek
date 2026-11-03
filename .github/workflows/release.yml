@@ -40,12 +40,11 @@ jobs:
         run: pnpm build
 
       - name: Release
-        uses: changesets/action@v1
+        uses: changesets/action@ae32849d5ba541f9ae29e40e22a623bc13562f51 # v2.1.2
         with:
-          version: pnpm run version
-          publish: pnpm run release
-        env:
-          GITHUB_TOKEN: ${{ secrets.SEEK_OSS_CI_GITHUB_TOKEN }}
+          version-script: pnpm run version
+          publish-script: pnpm run release
+          github token: ${{ secrets.SEEK_OSS_CI_GITHUB_TOKEN }}
 
   snapshot:
     name: Publish snapshot version
@@ -79,6 +78,6 @@ jobs:
         run: pnpm build
 
       - name: Publish
-        uses: seek-oss/changesets-snapshot@v0
+        uses: seek-oss/changesets-snapshot@56b8b82b8e45fd725daa2890453dfa0fa28f9eb0 # v1.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.SEEK_OSS_CI_GITHUB_TOKEN }}
